@@ -1,0 +1,49 @@
+Homepage / Solution Box Text
+
+Title: Digital Banking Solution – UAE
+Subtitle: UAE-Compliant Fintech Platform
+Short Description:
+We deliver tailored digital banking platforms that meet UAE Central Bank and ADGM/FSRA standards. From IBAN issuance to payment gateway integration, we power your fintech vision with secure, scalable technology.
+CTA Button: Learn More
+
+⸻
+
+Details Page Content
+
+Header Title
+
+Digital Banking Solution – UAE
+
+Intro Paragraph
+
+AK Nexus offers fully customized digital banking solutions for startups, SMEs, and financial institutions in the UAE. We handle the entire lifecycle—from compliance and licensing guidance to building secure, scalable, and user-friendly platforms. Our technology meets UAE Central Bank, ADGM, and FSRA requirements, enabling you to launch your fintech service with confidence.
+
+⸻
+
+Key Features
+	1.	IBAN Accounts for Businesses & Individuals
+Open and manage UAE-compliant IBAN accounts with instant onboarding and KYC integration.
+	2.	Fiat On-Ramp & Off-Ramp for AED, USD, EUR
+Seamlessly handle deposits and withdrawals across major currencies with integrated payment processing.
+	3.	UAE Licensing Guidance (Central Bank, ADGM, FSRA)
+Navigate local regulatory requirements with our licensing and compliance consultancy.
+	4.	API Integration with Payment Gateways
+Connect with PayTabs, Network International, Stripe UAE, and more for instant payment capability.
+	5.	White-Label Mobile & Web Banking Apps
+Fully branded apps with multi-language support, biometric login, and instant notifications.
+
+⸻
+
+Why Choose AK Nexus
+	•	Local Expertise: Deep understanding of UAE fintech regulations and market dynamics.
+	•	End-to-End Service: From legal setup to platform launch and maintenance.
+	•	Scalable Technology: Future-proof architecture ready for expansion.
+
+⸻
+
+Contact Form Section
+
+Header: Start Your UAE Digital Banking Journey
+Text: Let’s build your compliant, secure, and customer-friendly banking solution. Fill out the form below, and our team will reach out within 24 hours.
+
+Fields: Name, Email, Phone, Message, [Submit Button]
