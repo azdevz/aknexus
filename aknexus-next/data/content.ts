@@ -1,0 +1,127 @@
+export const testimonials = [
+  {
+    id: 1,
+    quote: "Their blockchain expertise helped us launch our DeFi platform ahead of schedule. Exceptional technical knowledge and professionalism.",
+    name: "Michael Chen",
+    title: "CTO, Global Logistics Inc.",
+    initials: "MC",
+  },
+  {
+    id: 2,
+    quote: "The e-commerce solution they built increased our conversion rate by 40%. The team understood our business needs perfectly.",
+    name: "Sarah Al-Rashid",
+    title: "Marketing Director, Retail Innovation",
+    initials: "SA",
+  },
+  {
+    id: 3,
+    quote: "Outstanding work on our digital banking platform. Security-first approach and excellent project management throughout.",
+    name: "Robert Johnson",
+    title: "Operations Manager, Enterprise Solutions",
+    initials: "RJ",
+  },
+];
+
+// Real projects from Figbit portfolio — powered by AK Nexus / Figbit
+export const portfolioItems = [
+  {
+    id: 1,
+    title: "LayerK",
+    description: "Full-stack crypto & blockchain platform with advanced DeFi features, wallet management, and exchange capabilities.",
+    category: "Blockchain",
+    url: "https://layerk.com/",
+    initials: "LK",
+    accent: "#3b82f6",
+    bg: "linear-gradient(135deg,#1e3a5f,#0a1628)",
+    emoji: "⛓️",
+  },
+  {
+    id: 2,
+    title: "Koinbay",
+    description: "Cryptocurrency exchange platform supporting multi-currency trading, real-time charts, and secure wallet infrastructure.",
+    category: "Crypto Exchange",
+    url: "https://www.koinbay.com/en-US",
+    initials: "KB",
+    accent: "#8b5cf6",
+    bg: "linear-gradient(135deg,#4c1d95,#1e1b4b)",
+    emoji: "💱",
+  },
+  {
+    id: 3,
+    title: "QLeadsPro",
+    description: "AI-powered real estate lead qualification CRM with WhatsApp integration, agent management, and smart funnel automation.",
+    category: "Agentic AI / CRM",
+    url: "https://website-qlead-pro.vercel.app/",
+    initials: "QL",
+    accent: "#10b981",
+    bg: "linear-gradient(135deg,#065f46,#0a1628)",
+    emoji: "🤖",
+  },
+  {
+    id: 4,
+    title: "Homnifi",
+    description: "Web3 home sharing and passive income platform powered by DePIN infrastructure and blockchain-native rewards.",
+    category: "Web3 / DePIN",
+    url: "https://homnifi.com/",
+    initials: "HF",
+    accent: "#f97316",
+    bg: "linear-gradient(135deg,#7c2d12,#1c0a00)",
+    emoji: "🏠",
+  },
+  {
+    id: 5,
+    title: "RentMyRide",
+    description: "UAE-based peer-to-peer car rental marketplace with real-time availability, payments, and a mobile-first experience.",
+    category: "Marketplace / UAE",
+    url: "https://www.rentmyride.ae/",
+    initials: "RR",
+    accent: "#c9a84c",
+    bg: "linear-gradient(135deg,#0a1628,#1e3a5f)",
+    emoji: "🚗",
+  },
+  {
+    id: 6,
+    title: "RentAHuman",
+    description: "AI-meets-human platform for on-demand expert assistance — combining conversational AI with real human specialists.",
+    category: "AI Platform",
+    url: "https://rentahuman.ai/",
+    initials: "RA",
+    accent: "#ec4899",
+    bg: "linear-gradient(135deg,#831843,#1a0030)",
+    emoji: "🧑‍💻",
+  },
+];
+
+// Discovery / How We Work process steps (from Figbit methodology)
+export const processSteps = [
+  {
+    number: "01",
+    title: "Discovery Call",
+    description: "A free 30-minute call to understand your goals, your audience, and the scope of what you want to build. No commitment required.",
+    icon: "🔍",
+  },
+  {
+    number: "02",
+    title: "Strategy & Design",
+    description: "We craft the architecture, wireframes, and high-fidelity UI designs — all aligned with your brand and business objectives.",
+    icon: "🎨",
+  },
+  {
+    number: "03",
+    title: "Build & Develop",
+    description: "Our expert developers bring designs to life with clean, scalable, and well-documented code using modern tech stacks.",
+    icon: "⚙️",
+  },
+  {
+    number: "04",
+    title: "Test & Launch",
+    description: "Rigorous QA testing, performance optimisation, and a smooth go-live process to ensure nothing is left to chance.",
+    icon: "🚀",
+  },
+  {
+    number: "05",
+    title: "Grow & Support",
+    description: "Ongoing support, analytics, and iterative improvements to keep your product growing and competitive after launch.",
+    icon: "📈",
+  },
+];

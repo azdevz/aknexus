@@ -1,0 +1,210 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-display: "Poppins", system-ui, sans-serif;
+
+  --color-navy-950: #020818;
+  --color-navy-900: #050d1f;
+  --color-navy-800: #0a1628;
+  --color-navy-700: #0f2040;
+  --color-navy-600: #1e3a5f;
+  --color-navy-500: #2a4f82;
+
+  --color-gold-400: #f5d88a;
+  --color-gold-500: #e8c870;
+  --color-gold-600: #c9a84c;
+  --color-gold-700: #a8872f;
+
+  --color-surface: #ffffff;
+  --color-bg: #f4f6fb;
+  --color-text: #0d1829;
+  --color-muted: #64748b;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  line-height: 1.15;
+}
+
+/* Gradient text utility */
+.gold-text {
+  background: linear-gradient(135deg, #c9a84c 0%, #f5d88a 50%, #e8c870 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Section label */
+.eyebrow {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #c9a84c;
+  margin-bottom: 0.75rem;
+}
+
+/* Wrapper */
+.wrap {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Glass card */
+.glass-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(201, 168, 76, 0.15);
+  border-radius: 1.25rem;
+  box-shadow: 0 4px 32px rgba(10, 22, 40, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.glass-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 48px rgba(10, 22, 40, 0.1);
+  border-color: rgba(201, 168, 76, 0.4);
+}
+
+/* Dark card */
+.dark-card {
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 1.25rem;
+  transition: all 0.3s ease;
+}
+.dark-card:hover {
+  background: rgba(255, 255, 255, 0.11);
+  border-color: rgba(201, 168, 76, 0.4);
+}
+
+/* Buttons */
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #c9a84c, #f5d88a, #c9a84c);
+  background-size: 200% 100%;
+  color: #020818;
+  font-weight: 700;
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  padding: 0.875rem 2rem;
+  border-radius: 0.875rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  box-shadow: 0 4px 20px rgba(201, 168, 76, 0.4);
+}
+.btn-gold:hover {
+  background-position: right center;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(201, 168, 76, 0.55);
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-weight: 600;
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  padding: 0.875rem 2rem;
+  border-radius: 0.875rem;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  backdrop-filter: blur(8px);
+}
+.btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: #c9a84c;
+  color: #f5d88a;
+  transform: translateY(-2px);
+}
+
+.btn-outline-navy {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  color: #1e3a5f;
+  font-weight: 600;
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  padding: 0.875rem 2rem;
+  border-radius: 0.875rem;
+  border: 2px solid #1e3a5f;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+.btn-outline-navy:hover {
+  background: #1e3a5f;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* Floating WhatsApp */
+.wa-float {
+  position: fixed;
+  bottom: 1.75rem;
+  right: 1.75rem;
+  width: 58px;
+  height: 58px;
+  background: linear-gradient(135deg, #25d366, #128c7e);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 24px rgba(37, 211, 102, 0.45);
+  z-index: 999;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+.wa-float:hover {
+  transform: scale(1.1) translateY(-2px);
+  box-shadow: 0 8px 36px rgba(37, 211, 102, 0.6);
+}
+
+/* Gold divider */
+.gold-divider {
+  width: 56px;
+  height: 3px;
+  background: linear-gradient(90deg, #c9a84c, #f5d88a);
+  border-radius: 2px;
+  margin: 1rem auto 0;
+}
+
+/* Glow effect */
+.glow-gold {
+  box-shadow: 0 0 40px rgba(201, 168, 76, 0.25), 0 4px 32px rgba(10, 22, 40, 0.1);
+}
