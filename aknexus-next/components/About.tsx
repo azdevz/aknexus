@@ -1,20 +1,21 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { CheckCircle, Users, Globe, Clock, ArrowRight } from "lucide-react";
+import { CheckCircle, Users, Globe, Award, ArrowRight } from "lucide-react";
 
 const processSteps = [
-  { number: "01", title: "Discovery", description: "We deep-dive into your business goals, challenges, and competitive landscape through focused consultation." },
-  { number: "02", title: "Strategy", description: "We craft a comprehensive technology roadmap and project plan tailored to your requirements." },
-  { number: "03", title: "Build", description: "Our expert team executes using agile sprints with bi-weekly demos and full transparency." },
-  { number: "04", title: "Support", description: "We provide ongoing maintenance, optimization, and scaling support for long-term success." },
+  { number: "01", title: "Discover", description: "Understand your business objectives, challenges, and what's driving the need for transformation." },
+  { number: "02", title: "Assess", description: "Evaluate current capabilities, technology maturity, and organizational readiness." },
+  { number: "03", title: "Strategize", description: "Develop a practical transformation roadmap aligned to business priorities." },
+  { number: "04", title: "Implement", description: "Execute with disciplined programme management, governance, and full executive visibility." },
+  { number: "05", title: "Adopt & Scale", description: "Enable change, build capability, and expand successful initiatives across the enterprise." },
 ];
 
 const highlights = [
-  { icon: <Users size={18} />, text: "15+ Technology Experts" },
-  { icon: <CheckCircle size={18} />, text: "100+ Projects Delivered" },
-  { icon: <Globe size={18} />, text: "UAE & USA Presence" },
-  { icon: <Clock size={18} />, text: "24/7 Support" },
+  { icon: <Users size={18} />, text: "15+ Years of Enterprise Experience" },
+  { icon: <CheckCircle size={18} />, text: "Business-First Consulting Approach" },
+  { icon: <Globe size={18} />, text: "International Client Engagements" },
+  { icon: <Award size={18} />, text: "PMO & AI Advisory Excellence" },
 ];
 
 export default function About() {
@@ -38,7 +39,7 @@ export default function About() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <span className="eyebrow">About Us</span>
+            <span className="eyebrow">About AK Nexus</span>
             <h2
               style={{
                 fontFamily: "var(--font-display)",
@@ -49,14 +50,17 @@ export default function About() {
                 letterSpacing: "-0.02em",
               }}
             >
-              We Are{" "}
-              <span className="gold-text">AK Nexus</span>
+              Enterprise Consulting,{" "}
+              <span className="gold-text">Built on Strategy</span>
             </h2>
             <p style={{ color: "#64748b", lineHeight: 1.75, marginBottom: "1rem", fontSize: "0.975rem" }}>
-              Founded with a vision to bridge cutting-edge technology and business needs, AK Nexus FZ LLC is a leading technology services provider based in the UAE — specializing in Blockchain, SaaS, Agentic AI, and UAE-compliant Digital Banking.
+              AK Nexus is an Enterprise AI & Digital Transformation Consulting firm helping organizations navigate complex business and technology change.
+            </p>
+            <p style={{ color: "#64748b", lineHeight: 1.75, marginBottom: "1rem", fontSize: "0.975rem" }}>
+              Our expertise combines strategic consulting, enterprise project management, digital transformation, AI advisory, and technology delivery to help organizations improve performance and create sustainable business value.
             </p>
             <p style={{ color: "#64748b", lineHeight: 1.75, marginBottom: "2rem", fontSize: "0.975rem" }}>
-              With 15+ years of engineering excellence, our team delivers solutions that drive digital transformation and create measurable business value for clients across the Middle East, UK, and USA.
+              We believe successful transformation requires the right balance of strategy, governance, people, processes, and technology.
             </p>
 
             <div
@@ -89,14 +93,6 @@ export default function About() {
               <a href="/#contact" className="btn-gold">
                 Work With Us <ArrowRight size={16} />
               </a>
-              <a
-                href="https://wa.me/971526365585"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-outline-navy"
-              >
-                WhatsApp Us
-              </a>
             </div>
           </motion.div>
 
@@ -121,21 +117,64 @@ export default function About() {
                   padding: "2.5rem",
                 }}
               >
+                {/* Founder card */}
+                <div
+                  style={{
+                    background: "rgba(255,255,255,0.06)",
+                    border: "1px solid rgba(201,168,76,0.2)",
+                    borderRadius: "1rem",
+                    padding: "1.5rem",
+                    marginBottom: "1.25rem",
+                  }}
+                >
+                  <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "0.75rem" }}>
+                    <div
+                      style={{
+                        width: "48px",
+                        height: "48px",
+                        borderRadius: "50%",
+                        background: "linear-gradient(135deg, #c9a84c, #f5d88a)",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        fontWeight: 900,
+                        fontSize: "0.9rem",
+                        color: "#020818",
+                        fontFamily: "var(--font-display)",
+                        flexShrink: 0,
+                      }}
+                    >
+                      AC
+                    </div>
+                    <div>
+                      <div style={{ color: "#fff", fontWeight: 700, fontSize: "0.9rem", fontFamily: "var(--font-display)" }}>
+                        Ayaz Chishti
+                      </div>
+                      <div style={{ color: "#c9a84c", fontSize: "0.75rem", fontWeight: 600 }}>
+                        Founder & Principal Consultant
+                      </div>
+                    </div>
+                  </div>
+                  <p style={{ color: "rgba(255,255,255,0.55)", fontSize: "0.8rem", lineHeight: 1.65 }}>
+                    15+ years leading enterprise technology initiatives across project management, digital transformation, AI strategy, fintech, SaaS, and PMO leadership.
+                  </p>
+                </div>
+
                 <div
                   style={{
                     display: "grid",
                     gridTemplateColumns: "1fr 1fr",
                     gap: "1rem",
-                    marginBottom: "1.5rem",
+                    marginBottom: "1.25rem",
                   }}
                 >
                   {[
-                    { label: "Blockchain", icon: "⛓️" },
-                    { label: "Metaverse", icon: "🌐" },
-                    { label: "SaaS", icon: "☁️" },
-                    { label: "Agentic AI", icon: "🤖" },
-                    { label: "Ecommerce", icon: "🛒" },
-                    { label: "Fintech UAE", icon: "🏦" },
+                    { label: "AI Strategy", icon: "🧠" },
+                    { label: "PMO", icon: "🏛️" },
+                    { label: "Digital Transformation", icon: "⚡" },
+                    { label: "Technology Advisory", icon: "🔭" },
+                    { label: "Automation", icon: "⚙️" },
+                    { label: "Change Management", icon: "🤝" },
                   ].map((item) => (
                     <div
                       key={item.label}
@@ -143,14 +182,13 @@ export default function About() {
                         background: "rgba(255,255,255,0.06)",
                         border: "1px solid rgba(255,255,255,0.08)",
                         borderRadius: "0.875rem",
-                        padding: "1rem",
+                        padding: "0.875rem",
                         textAlign: "center",
-                        transition: "border-color 0.2s",
                         cursor: "default",
                       }}
                     >
-                      <div style={{ fontSize: "1.75rem", marginBottom: "0.4rem" }}>{item.icon}</div>
-                      <div style={{ color: "#fff", fontSize: "0.75rem", fontWeight: 600 }}>{item.label}</div>
+                      <div style={{ fontSize: "1.5rem", marginBottom: "0.3rem" }}>{item.icon}</div>
+                      <div style={{ color: "#fff", fontSize: "0.72rem", fontWeight: 600 }}>{item.label}</div>
                     </div>
                   ))}
                 </div>
@@ -160,7 +198,7 @@ export default function About() {
                     15+
                   </div>
                   <div style={{ color: "rgba(255,255,255,0.5)", fontSize: "0.8rem", marginTop: "0.25rem" }}>
-                    Years Engineering Excellence
+                    Years of Enterprise Consulting
                   </div>
                 </div>
               </div>
@@ -168,7 +206,7 @@ export default function About() {
           </motion.div>
         </div>
 
-        {/* Process steps */}
+        {/* Transformation Framework */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -186,7 +224,7 @@ export default function About() {
                 marginTop: "0.25rem",
               }}
             >
-              Our Process
+              Our Transformation Framework
             </h3>
             <div className="gold-divider" />
           </div>
@@ -194,8 +232,8 @@ export default function About() {
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "repeat(4, 1fr)",
-              gap: "1.5rem",
+              gridTemplateColumns: "repeat(5, 1fr)",
+              gap: "1.25rem",
             }}
             className="process-grid"
           >
@@ -203,7 +241,7 @@ export default function About() {
               <motion.div
                 key={step.number}
                 className="glass-card"
-                style={{ padding: "2rem", textAlign: "center" }}
+                style={{ padding: "1.75rem", textAlign: "center" }}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -238,7 +276,7 @@ export default function About() {
                 >
                   {step.title}
                 </h4>
-                <p style={{ color: "#64748b", fontSize: "0.83rem", lineHeight: 1.65 }}>{step.description}</p>
+                <p style={{ color: "#64748b", fontSize: "0.8rem", lineHeight: 1.65 }}>{step.description}</p>
               </motion.div>
             ))}
           </div>
@@ -248,10 +286,10 @@ export default function About() {
       <style>{`
         @media (max-width: 900px) {
           .about-grid { grid-template-columns: 1fr !important; gap: 3rem !important; }
-          .process-grid { grid-template-columns: 1fr 1fr !important; }
+          .process-grid { grid-template-columns: 1fr 1fr 1fr !important; }
         }
         @media (max-width: 600px) {
-          .process-grid { grid-template-columns: 1fr !important; }
+          .process-grid { grid-template-columns: 1fr 1fr !important; }
         }
       `}</style>
     </section>

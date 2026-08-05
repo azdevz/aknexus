@@ -1,32 +1,30 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { Mail, Phone, MapPin, ArrowUpRight } from "lucide-react";
 
 const services = [
-  { label: "Blockchain Solutions", slug: "blockchain-solutions" },
-  { label: "Metaverse Development", slug: "metaverse-development" },
-  { label: "SaaS Development", slug: "saas-development" },
-  { label: "Agentic AI Solutions", slug: "agentic-ai-solutions" },
-  { label: "Ecommerce Business", slug: "ecommerce-business" },
-  { label: "Digital Banking – UAE", slug: "digital-banking-solution-uae" },
+  { label: "Enterprise AI Strategy", slug: "enterprise-ai-strategy" },
+  { label: "Digital Transformation", slug: "digital-transformation" },
+  { label: "Project, Programme & PMO", slug: "project-programme-pmo" },
+  { label: "Technology Advisory", slug: "technology-advisory" },
+  { label: "Intelligent Automation", slug: "intelligent-automation" },
 ];
 
 const quickLinks = [
   { label: "Home", href: "/#home" },
+  { label: "Services", href: "/#services" },
   { label: "About Us", href: "/#about" },
-  { label: "How We Work", href: "/#how-it-works" },
-  { label: "Portfolio", href: "/#portfolio" },
+  { label: "Why AK Nexus", href: "/#why-us" },
   { label: "Contact", href: "/#contact" },
-  { label: "Digital Banking UAE", href: "/digital-banking" },
-  { label: "Web Solutions", href: "/web-solutions" },
 ];
 
 const contactInfo = [
-  { icon: <MapPin size={14} />, lines: ["AK NEXUS FZ LLC", "RAKEZ Compass Coworking", "Ras Al Khaimah, UAE"] },
-  { icon: <MapPin size={14} />, lines: ["AK NEXUS LLC", "30 N Gould St Ste R", "Sheridan, WY 82801"] },
-  { icon: <Mail size={14} />, lines: ["info@aknexus.co", "hr@aknexus.co"] },
+  { icon: <Mail size={14} />, lines: ["hello@aknexus.co"] },
   { icon: <Phone size={14} />, lines: ["UAE: +971 66 78 3871", "USA: +1 307 403 0755"] },
+  { icon: <MapPin size={14} />, lines: ["AK NEXUS FZ LLC", "RAKEZ Compass Coworking", "Ras Al Khaimah, UAE"] },
+  { icon: <MapPin size={14} />, lines: ["AK NEXUS LLC", "30 N Gould St Ste R", "Sheridan, WY 82801, USA"] },
 ];
 
 export default function Footer() {
@@ -46,7 +44,7 @@ export default function Footer() {
         }
         .footer-grid {
           display: grid;
-          grid-template-columns: 2fr 1.2fr 1.2fr 1.5fr;
+          grid-template-columns: 2fr 1.4fr 1fr 1.5fr;
           gap: 3rem;
           padding-bottom: 3rem;
           border-bottom: 1px solid rgba(255,255,255,0.06);
@@ -73,17 +71,19 @@ export default function Footer() {
         }
         .footer-brand-name {
           font-family: var(--font-display), system-ui, sans-serif;
-          font-weight: 700;
-          font-size: 1.1rem;
+          font-weight: 900;
+          font-size: 1.5rem;
           color: #fff;
-          letter-spacing: -0.01em;
+          letter-spacing: 0.08em;
+          line-height: 1;
+          text-transform: uppercase;
         }
         .footer-tagline {
           color: rgba(255,255,255,0.4);
           font-size: 0.855rem;
           line-height: 1.75;
           margin-bottom: 1.75rem;
-          max-width: 240px;
+          max-width: 260px;
         }
         .footer-col-title {
           font-family: var(--font-display), system-ui, sans-serif;
@@ -147,7 +147,7 @@ export default function Footer() {
         .footer-policy-link:hover {
           color: #c9a84c;
         }
-        .footer-wa-btn {
+        .footer-contact-btn {
           display: inline-flex;
           align-items: center;
           gap: 0.4rem;
@@ -162,10 +162,21 @@ export default function Footer() {
           box-shadow: 0 3px 14px rgba(201,168,76,0.35);
           font-family: var(--font-display), system-ui, sans-serif;
         }
-        .footer-wa-btn:hover {
+        .footer-contact-btn:hover {
           opacity: 0.9;
           transform: translateY(-1px);
         }
+        .footer-linkedin {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.4rem;
+          color: rgba(255,255,255,0.35);
+          font-size: 0.82rem;
+          text-decoration: none;
+          margin-top: 0.75rem;
+          transition: color 0.2s;
+        }
+        .footer-linkedin:hover { color: #f5d88a; }
         @media (max-width: 1000px) {
           .footer-grid { grid-template-columns: 1fr 1fr; }
         }
@@ -181,25 +192,39 @@ export default function Footer() {
             {/* Brand */}
             <div>
               <div className="footer-logo-box">
-                <div className="footer-logo-icon">AK</div>
-                <span className="footer-brand-name">AK Nexus</span>
+                <Image
+                  src="/logo-square.png"
+                  alt="AK Nexus"
+                  width={36}
+                  height={36}
+                  style={{ borderRadius: "0.625rem", display: "block", flexShrink: 0 }}
+                />
+                <span className="footer-brand-name">NEXUS</span>
               </div>
               <p className="footer-tagline">
-                Building the future, one line of code at a time. Blockchain, SaaS, AI & fintech solutions worldwide.
+                Enterprise AI & Digital Transformation Consulting. Strategy First. AI Second. Business Outcomes Always.
               </p>
               <a
-                href="https://wa.me/971526365585"
+                href="/#contact"
+                className="footer-contact-btn"
+              >
+                Book a Discovery Call <ArrowUpRight size={14} />
+              </a>
+              <br />
+              <a
+                href="https://www.linkedin.com/company/aknexus"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="footer-wa-btn"
+                className="footer-linkedin"
               >
-                WhatsApp Us <ArrowUpRight size={14} />
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                Follow on LinkedIn
               </a>
             </div>
 
             {/* Services */}
             <div>
-              <p className="footer-col-title">Services</p>
+              <p className="footer-col-title">Consulting Practices</p>
               <ul className="footer-link-list">
                 {services.map((s) => (
                   <li key={s.slug}>
@@ -242,11 +267,16 @@ export default function Footer() {
           {/* Bottom bar */}
           <div className="footer-bottom">
             <p className="footer-copy">
-              © {new Date().getFullYear()} AK Nexus FZ LLC. All rights reserved.
+              © {new Date().getFullYear()} AK Nexus. All rights reserved.
             </p>
-            <Link href="/privacy-policy" className="footer-policy-link">
-              Privacy Policy
-            </Link>
+            <div style={{ display: "flex", gap: "1.5rem", alignItems: "center", flexWrap: "wrap" }}>
+              <Link href="/privacy-policy" className="footer-policy-link">
+                Privacy Policy
+              </Link>
+              <span className="footer-copy" style={{ fontSize: "0.75rem" }}>
+                Website: aknexus.co
+              </span>
+            </div>
           </div>
         </div>
       </footer>

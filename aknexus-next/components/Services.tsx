@@ -4,28 +4,23 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { services } from "@/data/services";
 import {
-  Link as LinkIcon, Laptop, Cloud, ListTodo,
-  Brain, ShoppingCart, CreditCard, ArrowRight,
+  Brain, TrendingUp, LayoutDashboard, Compass, Zap, ArrowRight,
 } from "lucide-react";
 
 const iconMap: Record<string, React.ReactNode> = {
-  Link: <LinkIcon size={26} />,
-  Laptop: <Laptop size={26} />,
-  Cloud: <Cloud size={26} />,
-  ListTodo: <ListTodo size={26} />,
   Brain: <Brain size={26} />,
-  ShoppingCart: <ShoppingCart size={26} />,
-  CreditCard: <CreditCard size={26} />,
+  TrendingUp: <TrendingUp size={26} />,
+  LayoutDashboard: <LayoutDashboard size={26} />,
+  Compass: <Compass size={26} />,
+  Zap: <Zap size={26} />,
 };
 
 const gradients: Record<string, string> = {
-  Link: "linear-gradient(135deg,#3b82f6,#6366f1)",
-  Laptop: "linear-gradient(135deg,#8b5cf6,#ec4899)",
-  Cloud: "linear-gradient(135deg,#06b6d4,#3b82f6)",
-  ListTodo: "linear-gradient(135deg,#10b981,#14b8a6)",
-  Brain: "linear-gradient(135deg,#f97316,#ef4444)",
-  ShoppingCart: "linear-gradient(135deg,#ec4899,#f43f5e)",
-  CreditCard: "linear-gradient(135deg,#c9a84c,#f5d88a)",
+  Brain: "linear-gradient(135deg,#3b82f6,#6366f1)",
+  TrendingUp: "linear-gradient(135deg,#10b981,#0ea5e9)",
+  LayoutDashboard: "linear-gradient(135deg,#c9a84c,#f5d88a)",
+  Compass: "linear-gradient(135deg,#0a1628,#1e3a5f)",
+  Zap: "linear-gradient(135deg,#f97316,#ef4444)",
 };
 
 export default function Services() {
@@ -53,19 +48,19 @@ export default function Services() {
               letterSpacing: "-0.02em",
             }}
           >
-            Comprehensive Development Services
+            Core Consulting Practices
           </h2>
           <div className="gold-divider" />
           <p
             style={{
               color: "#64748b",
-              maxWidth: "540px",
+              maxWidth: "560px",
               margin: "1.25rem auto 0",
               fontSize: "1.05rem",
               lineHeight: 1.7,
             }}
           >
-            Cutting-edge technologies and proven methodologies to deliver exceptional digital solutions across the UAE and globally.
+            Five integrated consulting practices designed to help organizations modernize, adopt AI responsibly, and deliver transformation with confidence.
           </p>
         </motion.div>
 

@@ -1,20 +1,41 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Lightbulb, Users, Settings, Zap } from "lucide-react";
+import { Target, Users, BarChart3, Shield, Eye } from "lucide-react";
 
 const reasons = [
-  { icon: <Lightbulb size={22} />, title: "Innovative Approach", description: "We embrace cutting-edge technologies to solve complex business challenges with modern, forward-thinking solutions." },
-  { icon: <Users size={22} />, title: "Expert Team", description: "Seasoned professionals with deep expertise in blockchain, AI, fintech, cloud, and enterprise software." },
-  { icon: <Settings size={22} />, title: "Customized Solutions", description: "No templates. Every solution is architected from scratch to meet your exact requirements and objectives." },
-  { icon: <Zap size={22} />, title: "Rapid Delivery", description: "Agile sprints, weekly demos, and a bias for action ensure you get to market faster than competitors." },
+  {
+    icon: <Target size={22} />,
+    title: "Business-First Approach",
+    description: "We align every technology decision with your business objectives. Strategy leads — technology follows.",
+  },
+  {
+    icon: <Users size={22} />,
+    title: "Executive Advisory",
+    description: "Strategic guidance for C-suite leaders navigating complex transformation, AI adoption, and technology modernization.",
+  },
+  {
+    icon: <BarChart3 size={22} />,
+    title: "Delivery Excellence",
+    description: "Structured governance, PMO best practices, and disciplined execution ensure your initiatives land on time and on budget.",
+  },
+  {
+    icon: <Shield size={22} />,
+    title: "Responsible AI",
+    description: "Practical, secure, and governed AI adoption — no hype, no shortcuts. AI implemented with proper guardrails and oversight.",
+  },
+  {
+    icon: <Eye size={22} />,
+    title: "Vendor-Neutral Recommendations",
+    description: "Technology recommendations based purely on business value — never on vendor relationships or product partnerships.",
+  },
 ];
 
 const statsRight = [
-  { num: "100+", label: "Projects Delivered", emoji: "🚀" },
-  { num: "40%+", label: "Avg. Conversion Uplift", emoji: "📈" },
-  { num: "15+", label: "Tech Experts", emoji: "👨‍💻" },
-  { num: "2", label: "Global Offices", emoji: "🌍" },
+  { num: "15+", label: "Years Experience", emoji: "🏆" },
+  { num: "5", label: "Consulting Practices", emoji: "🎯" },
+  { num: "Global", label: "Client Reach", emoji: "🌍" },
+  { num: "100%", label: "Vendor Neutral", emoji: "⚖️" },
 ];
 
 export default function WhyChooseUs() {
@@ -43,7 +64,7 @@ export default function WhyChooseUs() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <span className="eyebrow">Why Choose Us</span>
+            <span className="eyebrow">Why AK Nexus</span>
             <h2
               style={{
                 fontFamily: "var(--font-display)",
@@ -54,13 +75,13 @@ export default function WhyChooseUs() {
                 letterSpacing: "-0.02em",
               }}
             >
-              Your Partner in
+              Your Trusted Partner in
               <br />
-              <span className="gold-text">Digital Transformation</span>
+              <span className="gold-text">Enterprise Transformation</span>
             </h2>
             <div className="gold-divider" style={{ margin: "0 0 1.5rem" }} />
             <p style={{ color: "#64748b", lineHeight: 1.75, marginBottom: "2.5rem", fontSize: "0.975rem" }}>
-              AK Nexus combines technical expertise with strategic thinking to deliver technology solutions that give you a genuine competitive advantage — especially in the fast-growing UAE market.
+              AK Nexus brings together strategic consulting expertise and disciplined delivery to help organizations transform with confidence — from AI strategy and PMO excellence to digital transformation and intelligent automation.
             </p>
 
             <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
@@ -149,7 +170,7 @@ export default function WhyChooseUs() {
               ))}
             </div>
 
-            {/* UAE highlight card */}
+            {/* Consulting positioning card */}
             <div
               style={{
                 borderRadius: "1.25rem",
@@ -159,10 +180,10 @@ export default function WhyChooseUs() {
               }}
             >
               <div style={{ color: "#f5d88a", fontWeight: 700, marginBottom: "0.5rem", fontSize: "0.9rem" }}>
-                🇦🇪 UAE Market Expertise
+                🌐 International Consulting Reach
               </div>
               <p style={{ color: "rgba(255,255,255,0.65)", fontSize: "0.875rem", lineHeight: 1.65 }}>
-                Offices in Ras Al Khaimah and Sheridan, USA — we serve UAE startups, SMEs, and financial institutions with deep local knowledge and a global perspective.
+                We partner with organizations across the Middle East and internationally to deliver enterprise AI strategy, transformation programmes, and PMO excellence — helping leaders turn strategy into measurable business outcomes.
               </p>
             </div>
           </motion.div>

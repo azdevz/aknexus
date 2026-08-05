@@ -20,21 +20,32 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "AK Nexus FZ LLC — Blockchain, SaaS, AI & Fintech Solutions",
+  title: "AK Nexus | Enterprise AI & Digital Transformation Consulting",
   description:
-    "AK Nexus FZ LLC delivers cutting-edge technology services: Blockchain, Metaverse, SaaS Development, Agentic AI, Digital Banking UAE, and Ecommerce solutions for businesses worldwide.",
+    "AK Nexus helps organizations accelerate AI adoption, digital transformation, PMO excellence, and technology modernization through enterprise consulting services. Strategy First. AI Second. Business Outcomes Always.",
   keywords:
-    "blockchain development UAE, SaaS development, digital banking UAE, agentic AI, metaverse development, ecommerce UAE, AK Nexus, fintech UAE",
-  authors: [{ name: "AK Nexus FZ LLC" }],
+    "Enterprise AI Consulting, Digital Transformation, Project Management Consulting, PMO Consulting, Technology Advisory, AI Strategy, Business Transformation, Intelligent Automation, Enterprise Consulting",
+  authors: [{ name: "AK Nexus" }],
+  icons: {
+    icon: [
+      { url: "/logo-square.png", type: "image/png" },
+    ],
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+    shortcut: "/logo-square.png",
+  },
   openGraph: {
-    title: "AK Nexus FZ LLC — Build the Future with Expert Development",
+    title: "AK Nexus | Enterprise AI & Digital Transformation Consulting",
     description:
-      "From blockchain innovations to UAE-compliant digital banking, AK Nexus crafts digital solutions that drive business growth.",
+      "AK Nexus helps organizations transform with confidence through AI strategy, digital transformation, PMO excellence, automation, and technology advisory.",
     url: "https://aknexus.co",
     siteName: "AK Nexus",
     type: "website",
+    images: [{ url: "/logo-512.png", width: 512, height: 512, alt: "AK Nexus" }],
   },
 };
+
 
 const GA_ID = "AW-XXXXXXXXXX"; // TODO: Replace with your actual Google Ads ID
 

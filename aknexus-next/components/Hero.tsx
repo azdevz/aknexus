@@ -1,13 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Shield, Globe, Zap, ChevronDown } from "lucide-react";
+import { ArrowRight, Target, Globe, Shield, ChevronDown } from "lucide-react";
 
 const stats = [
-  { value: "100+", label: "Projects Delivered" },
-  { value: "15+", label: "Tech Experts" },
-  { value: "UAE & USA", label: "Global Presence" },
-  { value: "24/7", label: "Support" },
+  { value: "15+", label: "Years Experience" },
+  { value: "5", label: "Consulting Practices" },
+  { value: "Global", label: "Client Reach" },
+  { value: "Strategy", label: "First Approach" },
 ];
 
 export default function Hero() {
@@ -117,7 +117,7 @@ export default function Hero() {
           >
             <div style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#c9a84c" }} />
             <span style={{ color: "#f5d88a", fontSize: "0.78rem", fontWeight: 600, letterSpacing: "0.08em" }}>
-              UAE · ADGM · FSRA · Central Bank Compliant
+              Strategy First. AI Second. Business Outcomes Always.
             </span>
           </motion.div>
 
@@ -136,9 +136,10 @@ export default function Hero() {
               letterSpacing: "-0.02em",
             }}
           >
-            Build the Future with
+            Enterprise AI &amp;{" "}
             <br />
-            <span className="gold-text">Expert Development</span>
+            <span className="gold-text">Digital Transformation</span>
+            {" "}Consulting
           </motion.h1>
 
           {/* Subtext */}
@@ -149,13 +150,14 @@ export default function Hero() {
             style={{
               fontSize: "1.15rem",
               color: "rgba(255,255,255,0.6)",
-              maxWidth: "580px",
+              maxWidth: "620px",
               margin: "0 auto 2.5rem",
               lineHeight: 1.7,
             }}
           >
-            From blockchain innovations to UAE-compliant digital banking and agentic AI —
-            AK Nexus FZ LLC crafts digital solutions that power business growth across the Middle East and beyond.
+            AK Nexus helps organizations transform with confidence through AI strategy,
+            digital transformation, PMO excellence, automation, and technology advisory.
+            We partner with business leaders to turn strategy into measurable outcomes.
           </motion.p>
 
           {/* CTAs */}
@@ -166,15 +168,13 @@ export default function Hero() {
             style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap", marginBottom: "4rem" }}
           >
             <a
-              href="https://wa.me/971526365585?text=Hi%20AK%20Nexus%2C%20I%27d%20like%20a%20free%20consultation."
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/#contact"
               className="btn-gold"
             >
-              Get Free Consultation <ArrowRight size={18} />
+              Schedule a Discovery Call <ArrowRight size={18} />
             </a>
             <a href="/#services" className="btn-ghost">
-              Explore Services
+              Explore Our Services
             </a>
           </motion.div>
 
@@ -237,9 +237,9 @@ export default function Hero() {
             }}
           >
             {[
-              { icon: <Shield size={15} />, text: "UAE Central Bank Compliant" },
-              { icon: <Globe size={15} />, text: "UAE & USA Offices" },
-              { icon: <Zap size={15} />, text: "Agile & Rapid Delivery" },
+              { icon: <Target size={15} />, text: "Business-First Approach" },
+              { icon: <Shield size={15} />, text: "Responsible AI Adoption" },
+              { icon: <Globe size={15} />, text: "Vendor-Neutral Recommendations" },
             ].map((item) => (
               <div
                 key={item.text}

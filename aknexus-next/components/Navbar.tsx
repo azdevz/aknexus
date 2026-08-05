@@ -2,13 +2,14 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu, X, ChevronDown } from "lucide-react";
+import Image from "next/image";
+import { Menu, X } from "lucide-react";
 
 const navLinks = [
   { label: "Home", href: "/#home" },
   { label: "Services", href: "/#services" },
   { label: "About", href: "/#about" },
-  { label: "Portfolio", href: "/#portfolio" },
+  { label: "Why Us", href: "/#why-us" },
   { label: "Contact", href: "/#contact" },
 ];
 
@@ -38,26 +39,26 @@ export default function Navbar() {
       <div className="wrap flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2.5 no-underline">
-          <div
-            className="w-9 h-9 rounded-xl flex items-center justify-center text-xs font-black"
-            style={{
-              background: "linear-gradient(135deg, #c9a84c, #f5d88a)",
-              color: "#020818",
-              fontFamily: "var(--font-display)",
-            }}
-          >
-            AK
-          </div>
+          <Image
+            src="/logo-square.png"
+            alt="AK Nexus"
+            width={36}
+            height={36}
+            style={{ borderRadius: "0.625rem", display: "block" }}
+            priority
+          />
           <span
             style={{
               fontFamily: "var(--font-display)",
-              fontWeight: 700,
-              fontSize: "1.15rem",
+              fontWeight: 900,
+              fontSize: "1.5rem",
               color: "#fff",
-              letterSpacing: "-0.01em",
+              letterSpacing: "0.08em",
+              lineHeight: 1,
+              textTransform: "uppercase",
             }}
           >
-            Nexus
+            NEXUS
           </span>
         </Link>
 
@@ -85,13 +86,11 @@ export default function Navbar() {
         {/* CTA */}
         <div className="hidden md:flex items-center gap-3">
           <a
-            href="https://wa.me/971526365585"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/#contact"
             className="btn-gold"
             style={{ padding: "0.6rem 1.5rem", fontSize: "0.85rem" }}
           >
-            Free Consultation
+            Discovery Call
           </a>
         </div>
 
@@ -128,13 +127,12 @@ export default function Navbar() {
               </a>
             ))}
             <a
-              href="https://wa.me/971526365585"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/#contact"
               className="btn-gold"
               style={{ marginTop: "0.5rem", justifyContent: "center" }}
+              onClick={() => setOpen(false)}
             >
-              Free Consultation
+              Book a Discovery Call
             </a>
           </div>
         </div>

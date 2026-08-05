@@ -27,14 +27,14 @@ export default function Discovery() {
           transition={{ duration: 0.6 }}
         >
           <span style={{ display: "inline-block", fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", color: "#c9a84c", marginBottom: "0.75rem" }}>
-            How We Work
+            Our Approach
           </span>
           <h2 style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: "clamp(1.8rem,4vw,2.75rem)", color: "#fff", marginBottom: "1rem", letterSpacing: "-0.02em" }}>
-            A Clear, Proven Process
+            The Transformation Framework
           </h2>
           <div className="gold-divider" />
           <p style={{ color: "rgba(255,255,255,0.5)", maxWidth: "520px", margin: "1.25rem auto 0", lineHeight: 1.7 }}>
-            From idea to launch — and beyond. A clear, collaborative process that keeps you informed at every step.
+            A structured, repeatable approach to enterprise transformation — from discovery through scale.
           </p>
         </motion.div>
 
@@ -80,15 +80,13 @@ export default function Discovery() {
           transition={{ duration: 0.5 }}
         >
           <p style={{ color: "rgba(255,255,255,0.45)", fontSize: "0.85rem", marginBottom: "1.25rem" }}>
-            No commitment required · 30 minutes, on us
+            No commitment required · 30 minutes, no obligations
           </p>
           <a
-            href="https://wa.me/971526365585?text=Hi%20AK%20Nexus%2C%20I%27d%20like%20to%20book%20a%20free%20discovery%20call."
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/#contact"
             className="btn-gold"
           >
-            Book Free Discovery Call <ArrowRight size={18} />
+            Schedule a Discovery Call <ArrowRight size={18} />
           </a>
         </motion.div>
       </div>

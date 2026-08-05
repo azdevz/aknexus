@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Calendar } from "lucide-react";
 
 export default function CTA() {
   return (
@@ -26,20 +26,20 @@ export default function CTA() {
 
           <div style={{ position: "relative", zIndex: 1 }}>
             <span style={{ display: "inline-block", fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", color: "#c9a84c", marginBottom: "1rem" }}>
-              Ready to Start?
+              Ready to Transform?
             </span>
             <h2 style={{ fontFamily: "var(--font-display)", fontWeight: 900, fontSize: "clamp(1.75rem,4vw,2.75rem)", color: "#fff", marginBottom: "1rem", letterSpacing: "-0.02em" }}>
-              Let&apos;s Build Something Amazing Together
+              Ready to Transform Your Business?
             </h2>
-            <p style={{ color: "rgba(255,255,255,0.55)", maxWidth: "520px", margin: "0 auto 2.5rem", lineHeight: 1.7 }}>
-              Book a free 30-minute consultation. No commitments — just expert advice on the best approach for your business goals.
+            <p style={{ color: "rgba(255,255,255,0.55)", maxWidth: "560px", margin: "0 auto 2.5rem", lineHeight: 1.7 }}>
+              Whether you&apos;re planning an AI initiative, modernizing operations, strengthening programme governance, or delivering enterprise transformation — AK Nexus is ready to help.
             </p>
             <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>
-              <a href="https://wa.me/971526365585?text=Hi%20AK%20Nexus%2C%20I%27d%20like%20a%20free%20consultation." target="_blank" rel="noopener noreferrer" className="btn-gold">
-                Chat on WhatsApp <ArrowRight size={18} />
+              <a href="/#contact" className="btn-gold">
+                <Calendar size={18} /> Book a Discovery Call
               </a>
-              <a href="/#contact" className="btn-ghost">
-                Send a Message
+              <a href="/#services" className="btn-ghost">
+                Explore Our Services <ArrowRight size={18} />
               </a>
             </div>
           </div>
