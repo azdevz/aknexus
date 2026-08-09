@@ -80,6 +80,30 @@ const contractReasons = [
   { Icon: UsersRound, title: "Senior delivery leadership", copy: "Bring in practical technical delivery experience without adding permanent headcount." },
 ];
 
+const skillGroups = [
+  {
+    title: "Delivery & PMO expertise",
+    description: "The operating discipline that keeps programmes moving and leaders informed.",
+    items: ["Agile & Scrum", "Sprint planning", "Backlog governance", "Capacity planning", "Resource forecasting", "RAID & risk management", "Budget tracking", "Executive reporting"],
+  },
+  {
+    title: "AI & automation",
+    description: "Practical AI-assisted delivery practices that reduce reporting effort and surface risk sooner.",
+    items: ["Microsoft Copilot", "ChatGPT", "Claude", "Notion AI", "AI PMO Copilot", "Sprint-report automation", "Risk dashboards", "Roadmap forecasting"],
+  },
+  {
+    title: "Technical fluency",
+    description: "Enough technical depth to connect executive priorities with engineering execution.",
+    items: ["AI / LLM & RAG", "SaaS architecture", "REST APIs", "Cloud: AWS & Azure", "CI/CD", "Python scripting", "Web3 & DeFi", "KYC / AML & VARA"],
+  },
+];
+
+const toolGroups = [
+  ["Project delivery", "Jira", "Confluence", "ClickUp", "Asana", "Trello", "MS Project"],
+  ["Collaboration", "Slack", "Microsoft Teams", "Notion", "Google Drive", "Google Sheets"],
+  ["Reporting & oversight", "Power BI", "Jira dashboards", "Figma (review)", "GitHub (oversight)"],
+];
+
 function WhatsappLink({ children, className = "btn-gold", message }: { children: React.ReactNode; className?: string; message: string }) {
   return (
     <a
@@ -118,7 +142,7 @@ export default function TechnicalPMOLanding() {
               Need a Technical PMO <span className="gold-text">without the cost</span> of a permanent hire?
             </h1>
             <p style={{ maxWidth: "680px", color: "rgba(255,255,255,.72)", fontSize: "1.05rem", lineHeight: 1.8 }}>
-              Hire an experienced Technical Project Manager / PMO Lead on a contract basis—available to start as early as the next working day. Get hands-on governance, delivery leadership, technical oversight, and reporting when you need it.
+              For established UAE companies that need delivery leadership quickly: hire an experienced Technical Project Manager / PMO Lead on a contract basis. Get hands-on governance, technical oversight, and executive reporting without a long permanent-hiring cycle.
             </p>
             <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem", marginTop: "2.2rem" }}>
               <WhatsappLink message="Hi AK Nexus, I would like to book a free 30-minute Technical PMO discovery call.">
@@ -164,12 +188,37 @@ export default function TechnicalPMOLanding() {
         </div>
       </section>
 
+      <section style={{ padding: "4rem 0", background: "#eef2f8" }}>
+        <div className="wrap">
+          <div className="pmo-hiring-cta">
+            <div>
+              <span className="eyebrow" style={{ marginBottom: ".45rem" }}>Hiring made practical</span>
+              <h2 style={{ color: "#0a1628", fontSize: "clamp(1.5rem,3vw,2.2rem)", fontWeight: 700, letterSpacing: "-.025em", marginBottom: ".6rem" }}>A delivery hire for companies that need momentum—not another lengthy recruitment process.</h2>
+              <p style={{ color: "#64748b", maxWidth: "670px", fontSize: ".95rem" }}>In 30 minutes, we can clarify the delivery gap, recommended engagement model, start timing, and the PMO outcomes your leadership team needs.</p>
+            </div>
+            <WhatsappLink message="Hi AK Nexus, our company is considering contract Technical PMO support. I would like to book a free 30-minute discovery call.">Book a Discovery Call <ArrowRight size={17} /></WhatsappLink>
+          </div>
+        </div>
+      </section>
+
       <section id="capabilities" style={{ padding: "6rem 0" }}>
         <div className="wrap">
-          <div style={{ maxWidth: "680px", marginBottom: "3rem" }}>
-            <span className="eyebrow">Contract-based Technical PMO</span>
-            <h2 className="pmo-heading">Execution that brings structure to complex technology delivery.</h2>
-            <p className="pmo-copy">Engage for a defined period, transformation programme, delivery gap, or project outcome. Available on-site in the UAE, remote, or hybrid.</p>
+          <div className="pmo-capability-intro">
+            <div>
+              <span className="eyebrow">Contract-based Technical PMO</span>
+              <h2 className="pmo-heading">Execution that brings structure to complex technology delivery.</h2>
+              <p className="pmo-copy">Engage for a defined period, transformation programme, delivery gap, or project outcome. Available on-site in the UAE, remote, or hybrid.</p>
+            </div>
+            <aside className="pmo-capability-summary">
+              <span style={{ color: "#a8872f", fontSize: ".7rem", letterSpacing: ".12em", fontWeight: 700, textTransform: "uppercase" }}>Where support starts</span>
+              <div className="pmo-summary-list">
+                <span><Check size={15} /> Project recovery</span>
+                <span><Check size={15} /> PMO setup</span>
+                <span><Check size={15} /> Programme governance</span>
+                <span><Check size={15} /> Transformation delivery</span>
+              </div>
+              <p>Flexible terms for a clear delivery need.</p>
+            </aside>
           </div>
           <div className="pmo-services-grid">
             {serviceCards.map((card, index) => (
@@ -180,6 +229,29 @@ export default function TechnicalPMOLanding() {
                 <div style={{ display: "flex", flexWrap: "wrap", gap: ".45rem", marginTop: "1.2rem" }}>{card.items.map((item) => <span key={item} className="pmo-pill">{item}</span>)}</div>
               </motion.article>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="technical-skills" style={{ padding: "6rem 0", background: "#fff" }}>
+        <div className="wrap">
+          <div style={{ maxWidth: "720px", marginBottom: "3rem" }}>
+            <span className="eyebrow">Technical skills, expertise & tools</span>
+            <h2 className="pmo-heading">A delivery leader who can work comfortably across the business, the PMO, and the technology team.</h2>
+            <p className="pmo-copy">Hands-on expertise across delivery governance, AI-assisted PMO operations, and the tools that keep modern technology programmes aligned.</p>
+          </div>
+          <div className="pmo-skills-grid">
+            {skillGroups.map((group, index) => (
+              <article key={group.title} className="glass-card" style={{ padding: "1.7rem" }}>
+                <div className="pmo-skill-number">0{index + 1}</div>
+                <h3 style={{ color: "#0a1628", fontSize: "1.15rem", fontWeight: 700, margin: ".7rem 0 .55rem" }}>{group.title}</h3>
+                <p style={{ color: "#64748b", fontSize: ".86rem", lineHeight: 1.65, minHeight: "68px" }}>{group.description}</p>
+                <div style={{ display: "flex", flexWrap: "wrap", gap: ".45rem", marginTop: "1.15rem" }}>{group.items.map((item) => <span key={item} className="pmo-pill">{item}</span>)}</div>
+              </article>
+            ))}
+          </div>
+          <div className="pmo-tools-strip">
+            {toolGroups.map(([label, ...tools]) => <div key={label} className="pmo-tools-group"><span>{label}</span><p>{tools.join(" · ")}</p></div>)}
           </div>
         </div>
       </section>
@@ -248,6 +320,9 @@ export default function TechnicalPMOLanding() {
         .pmo-delivery-card { padding:1.7rem; border:1px solid rgba(245,216,138,.2); background:linear-gradient(145deg,rgba(255,255,255,.09),rgba(255,255,255,.035)); border-radius:1.15rem; box-shadow:0 24px 60px rgba(0,0,0,.18); backdrop-filter:blur(14px); }
         .pmo-status-dot { width:7px; height:7px; border-radius:50%; background:#70d18a; box-shadow:0 0 0 4px rgba(112,209,138,.12); }
         .pmo-delivery-line { display:flex; flex-direction:column; gap:.2rem; padding:.8rem 0; border-top:1px solid rgba(255,255,255,.09); }.pmo-delivery-line span{color:rgba(255,255,255,.48);font-size:.7rem;letter-spacing:.07em;text-transform:uppercase}.pmo-delivery-line strong{color:rgba(255,255,255,.88);font-size:.85rem;font-weight:500}
+        .pmo-hiring-cta { display:grid; grid-template-columns:minmax(0,1fr) auto; gap:2rem; align-items:center; padding:2rem 2.2rem; background:#fff; border:1px solid rgba(10,22,40,.08); border-radius:1.15rem; box-shadow:0 12px 34px rgba(10,22,40,.06); }.pmo-hiring-cta .btn-gold{white-space:nowrap;flex-shrink:0;min-width:max-content}
+        .pmo-capability-intro { display:grid; grid-template-columns:minmax(0,1.2fr) minmax(280px,.8fr); gap:3rem; align-items:end; margin-bottom:3rem; }.pmo-capability-summary{padding:1.35rem 1.5rem;border-left:2px solid #c9a84c;background:rgba(255,255,255,.55)}.pmo-summary-list{display:grid;grid-template-columns:1fr 1fr;gap:.65rem;margin:1rem 0}.pmo-summary-list span{display:flex;align-items:center;gap:.4rem;color:#405069;font-size:.82rem;font-weight:600}.pmo-summary-list svg{color:#c9a84c}.pmo-capability-summary p{color:#718096;font-size:.78rem;margin:0}
+        .pmo-skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}.pmo-skill-number{color:#c9a84c;font-size:.72rem;font-weight:700;letter-spacing:.12em}.pmo-tools-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1.3rem;padding:1.3rem 1.5rem;border:1px solid rgba(10,22,40,.08);border-radius:1rem;background:#f8fafc}.pmo-tools-group+ .pmo-tools-group{border-left:1px solid rgba(10,22,40,.09);padding-left:1.25rem}.pmo-tools-group span{color:#a8872f;font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase}.pmo-tools-group p{color:#506078;font-size:.82rem;line-height:1.65;margin-top:.45rem}
         .pmo-copy { color:#64748b; max-width:590px; font-size:1rem; line-height:1.75; }
         .pmo-two-col { display:grid; grid-template-columns:1.05fr .95fr; gap:5rem; align-items:center; }
         .pmo-services-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.25rem; }
@@ -258,8 +333,8 @@ export default function TechnicalPMOLanding() {
         .pmo-list-grid { display:grid; grid-template-columns:1fr 1fr; gap:.8rem; color:#526174; font-size:.88rem; }
         .pmo-list-grid div { display:flex; gap:.5rem; align-items:center; }.pmo-list-grid svg { color:#c9a84c; flex:none; }
         .pmo-dark-button { display:inline-flex; align-items:center; gap:.55rem; padding:.9rem 1.6rem; border-radius:.8rem; background:#020818; color:#fff; font-family:var(--font-display); font-size:.9rem; font-weight:700; text-decoration:none; box-shadow:0 6px 20px rgba(2,8,24,.24); transition:transform .2s ease; }.pmo-dark-button:hover{transform:translateY(-2px)}
-        @media(max-width:1000px) { .pmo-hero-grid{grid-template-columns:1fr}.pmo-delivery-card{max-width:560px}.pmo-services-grid{grid-template-columns:repeat(2,1fr)}.pmo-services-grid > :last-child{grid-column:auto}.pmo-reasons-grid{grid-template-columns:repeat(2,1fr)}.pmo-two-col,.pmo-audience-grid{gap:2.5rem} }
-        @media(max-width:650px) { .pmo-two-col,.pmo-audience-grid,.pmo-services-grid,.pmo-reasons-grid,.pmo-list-grid{grid-template-columns:1fr}.pmo-audience-grid>div:last-child{border-left:0;border-top:2px solid #c9a84c;padding:2rem 0 0}.pmo-two-col{gap:2.3rem} }
+        @media(max-width:1000px) { .pmo-hero-grid,.pmo-capability-intro{grid-template-columns:1fr}.pmo-delivery-card{max-width:560px}.pmo-capability-summary{max-width:620px}.pmo-services-grid{grid-template-columns:repeat(2,1fr)}.pmo-skills-grid{grid-template-columns:1fr}.pmo-services-grid > :last-child{grid-column:auto}.pmo-reasons-grid{grid-template-columns:repeat(2,1fr)}.pmo-tools-strip{grid-template-columns:1fr}.pmo-tools-group+.pmo-tools-group{border-left:0;border-top:1px solid rgba(10,22,40,.09);padding:1rem 0 0}.pmo-two-col,.pmo-audience-grid{gap:2.5rem} }
+        @media(max-width:650px) { .pmo-two-col,.pmo-audience-grid,.pmo-services-grid,.pmo-reasons-grid,.pmo-list-grid{grid-template-columns:1fr}.pmo-hiring-cta{grid-template-columns:1fr;padding:1.6rem}.pmo-hiring-cta .btn-gold{min-width:0;width:100%;justify-content:center}.pmo-summary-list{grid-template-columns:1fr}.pmo-audience-grid>div:last-child{border-left:0;border-top:2px solid #c9a84c;padding:2rem 0 0}.pmo-two-col{gap:2.3rem} }
       `}</style>
     </div>
   );
