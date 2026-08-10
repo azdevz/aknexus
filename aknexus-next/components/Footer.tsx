@@ -273,6 +273,9 @@ export default function Footer() {
               <Link href="/privacy-policy" className="footer-policy-link">
                 Privacy Policy
               </Link>
+              <Link href="/terms-and-conditions" className="footer-policy-link">
+                Terms &amp; Conditions
+              </Link>
               <span className="footer-copy" style={{ fontSize: "0.75rem" }}>
                 Website: aknexus.co
               </span>
