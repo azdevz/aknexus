@@ -34,7 +34,7 @@ html {
 
 body {
   font-family: var(--font-sans);
-  background: var(--color-bg);
+  background: #020818;
   color: var(--color-text);
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;

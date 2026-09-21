@@ -3,7 +3,7 @@ import LegalPage from "@/components/LegalPage";
 
 export const metadata: Metadata = {
   title: "Privacy Policy | AK Nexus",
-  description: "Read how AK Nexus collects, uses, and protects information submitted through our website.",
+  description: "Read how AK Nexus collects, uses, and protects information submitted through our website and audit forms.",
   alternates: { canonical: "https://aknexus.co/privacy-policy" },
 };
 
@@ -12,15 +12,57 @@ export default function PrivacyPolicyPage() {
     <LegalPage
       eyebrow="Legal"
       title="Privacy Policy"
-      intro="This Privacy Policy explains how AK Nexus collects and handles personal information when you use our website or contact us about our consulting services."
+      intro="This Privacy Policy explains how AK Nexus LLC ('AK Nexus', 'we', 'us') collects, uses, and safeguards information when you visit our website, submit an inquiry or audit request, or engage our services."
       sections={[
-        { title: "Information we collect", body: ["We may collect information you choose to provide, such as your name, email address, phone number, company, job title, and project or service enquiry. We may also collect limited technical information generated when you use our website, such as browser type, device information, IP address, and pages visited."] },
-        { title: "How we use information", items: ["Respond to enquiries and discovery-call requests.", "Provide information about relevant AK Nexus services.", "Operate, secure, and improve our website and service delivery.", "Meet applicable legal, regulatory, and record-keeping requirements."] },
-        { title: "How information is shared", body: ["We do not sell personal information. We may share information with trusted service providers that support our website, communications, analytics, or business operations, only where necessary for those purposes. We may also disclose information where required by applicable law or to protect our rights, users, or business."] },
-        { title: "Cookies and analytics", body: ["Our website may use cookies and similar technologies to support core site functionality, understand how visitors use the site, and improve performance. You can manage cookies through your browser settings; disabling some cookies may affect certain website features."] },
-        { title: "Data retention and security", body: ["We retain information only for as long as reasonably necessary for the purposes described in this policy, including legitimate business, legal, and operational requirements. We use reasonable organisational and technical safeguards to protect information, but no online service can guarantee absolute security."] },
-        { title: "Your choices", body: ["You may contact us to request access to, correction of, or deletion of personal information we hold about you, subject to applicable requirements and limitations. You may also opt out of non-essential marketing communications at any time."] },
-        { title: "Changes to this policy", body: ["We may update this Privacy Policy from time to time. The latest version will be posted on this page with its updated date."] },
+        {
+          title: "1. Prohibition on Confidential Case Information",
+          body: [
+            "AK Nexus provides marketing, website, and front-office technology services. We are NOT a law firm and do not provide legal advice or representation.",
+            "IMPORTANT: Do not submit any confidential case details, privileged communications, specific dispute narratives, spouse or child names, or sensitive legal matter documents through our website forms or booking calendars. All inquiries are limited strictly to practice marketing and operations.",
+          ],
+        },
+        {
+          title: "2. Information We Collect",
+          items: [
+            "Contact & Firm Details: Full name, work email, phone number, law firm name, website URL, state jurisdiction, and firm size submitted via our audit, inquiry, or booking forms.",
+            "Communications & Calendar Booking: Information provided when scheduling a consultation or corresponding with our team.",
+            "Technical & Tracking Data: IP address, browser type, device information, operating system, referrer URL, pages visited, and UTM campaign tracking parameters auto-captured via analytics scripts.",
+          ],
+        },
+        {
+          title: "3. Email & SMS Communications (Opt-Out)",
+          body: [
+            "When you provide your email or phone number and consent to communications, we may send you written audit reports, scheduling updates, service notifications, and practice growth insights.",
+            "You may opt out of SMS communications at any time by replying 'STOP'. You may opt out of marketing emails by clicking the 'Unsubscribe' link in any email or by contacting hello@aknexus.co. Message and data rates may apply.",
+          ],
+        },
+        {
+          title: "4. Third-Party Service Processors",
+          body: [
+            "We do not sell personal information. We share information only with authorized third-party vendors who assist us in operating our services, including: CRM and marketing automation platforms (e.g., GoHighLevel), email and SMS service providers, cloud infrastructure, payment processors (Stripe), and analytics providers (Google Analytics, Meta). All processors are bound by confidentiality obligations.",
+          ],
+        },
+        {
+          title: "5. Analytics, Cookies & Advertising Tags",
+          body: [
+            "We utilize cookies, Google Analytics, and conversion tags to evaluate site performance and measure campaign effectiveness. You may disable cookies through your browser settings, though certain site features may be affected.",
+          ],
+        },
+        {
+          title: "6. Data Retention, Security & Deletion Requests",
+          body: [
+            "We retain inquiry information only as long as necessary for legitimate business, legal, and operational purposes. We implement administrative, physical, and technical safeguards including encryption and multi-factor authentication.",
+            "You have the right to request access to, correction of, or permanent deletion of your personal data by emailing hello@aknexus.co.",
+          ],
+        },
+        {
+          title: "7. Contact Information",
+          body: [
+            "AK NEXUS LLC",
+            "30 N Gould St Ste R, Sheridan, WY 82801, USA",
+            "Email: hello@aknexus.co | Phone: +1 307 403 0755",
+          ],
+        },
       ]}
     />
   );

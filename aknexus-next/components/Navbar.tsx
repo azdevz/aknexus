@@ -7,11 +7,11 @@ import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
-  { label: "Home", href: "/#home" },
-  { label: "Services", href: "/#services" },
-  { label: "About", href: "/#about" },
-  { label: "Why Us", href: "/#why-us" },
-  { label: "Contact", href: "/#contact" },
+  { label: "Home", href: "/" },
+  { label: "Family Law", href: "/family-law" },
+  { label: "Plans", href: "/plans" },
+  { label: "How It Works", href: "/how-it-works" },
+  { label: "About", href: "/about" },
 ];
 
 export default function Navbar() {
@@ -31,12 +31,12 @@ export default function Navbar() {
       className="fixed top-0 left-0 right-0 z-50 transition-all duration-400"
       style={{
         background: hasSolidBackground
-          ? "rgba(2,8,24,0.92)"
-          : "transparent",
-        backdropFilter: hasSolidBackground ? "blur(20px)" : "none",
-        WebkitBackdropFilter: hasSolidBackground ? "blur(20px)" : "none",
-        borderBottom: hasSolidBackground ? "1px solid rgba(201,168,76,0.15)" : "none",
-        padding: hasSolidBackground ? "0.75rem 0" : "1.25rem 0",
+          ? "rgba(2,8,24,0.95)"
+          : "rgba(2,8,24,0.6)",
+        backdropFilter: "blur(20px)",
+        WebkitBackdropFilter: "blur(20px)",
+        borderBottom: "1px solid rgba(201,168,76,0.18)",
+        padding: hasSolidBackground ? "0.75rem 0" : "1.1rem 0",
       }}
     >
       <div className="wrap flex items-center justify-between">
@@ -54,7 +54,7 @@ export default function Navbar() {
             style={{
               fontFamily: "var(--font-display)",
               fontWeight: 900,
-              fontSize: "1.5rem",
+              fontSize: "1.45rem",
               color: "#fff",
               letterSpacing: "0.08em",
               lineHeight: 1,
@@ -67,34 +67,48 @@ export default function Navbar() {
 
         {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-7">
-          {navLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              style={{
-                color: "rgba(255,255,255,0.75)",
-                fontSize: "0.875rem",
-                fontWeight: 500,
-                textDecoration: "none",
-                transition: "color 0.2s",
-              }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = "#f5d88a")}
-              onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.75)")}
-            >
-              {link.label}
-            </a>
-          ))}
+          {navLinks.map((link) => {
+            const isActive = pathname === link.href;
+            return (
+              <Link
+                key={link.label}
+                href={link.href}
+                style={{
+                  color: isActive ? "#f5d88a" : "rgba(255,255,255,0.78)",
+                  fontSize: "0.9rem",
+                  fontWeight: 500,
+                  textDecoration: "none",
+                  transition: "color 0.2s",
+                  borderBottom: isActive ? "2px solid #f5d88a" : "2px solid transparent",
+                  paddingBottom: "2px",
+                }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = "#f5d88a")}
+                onMouseLeave={(e) => (e.currentTarget.style.color = isActive ? "#f5d88a" : "rgba(255,255,255,0.78)")}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
         </nav>
 
         {/* CTA */}
         <div className="hidden md:flex items-center gap-3">
-          <a
-            href="/#contact"
-            className="btn-gold"
-            style={{ padding: "0.6rem 1.5rem", fontSize: "0.85rem" }}
+          <Link
+            href="/free-audit"
+            className="text-xs uppercase tracking-wider font-semibold"
+            style={{ color: "rgba(255,255,255,0.75)", textDecoration: "none" }}
+            onMouseEnter={(e) => (e.currentTarget.style.color = "#fff")}
+            onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.75)")}
           >
-            Discovery Call
-          </a>
+            Free Audit
+          </Link>
+          <Link
+            href="/book"
+            className="btn-gold"
+            style={{ padding: "0.6rem 1.4rem", fontSize: "0.875rem" }}
+          >
+            Book a Call
+          </Link>
         </div>
 
         {/* Mobile hamburger */}
@@ -113,30 +127,50 @@ export default function Navbar() {
         <div
           className="md:hidden mt-2 mx-4 rounded-2xl p-5"
           style={{
-            background: "rgba(2,8,24,0.97)",
-            border: "1px solid rgba(201,168,76,0.2)",
+            background: "rgba(2,8,24,0.98)",
+            border: "1px solid rgba(201,168,76,0.25)",
             backdropFilter: "blur(20px)",
           }}
         >
           <div className="flex flex-col gap-4">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.label}
                 href={link.href}
-                style={{ color: "rgba(255,255,255,0.8)", textDecoration: "none", fontWeight: 500 }}
+                style={{
+                  color: pathname === link.href ? "#f5d88a" : "rgba(255,255,255,0.85)",
+                  textDecoration: "none",
+                  fontWeight: 500,
+                  fontSize: "1rem",
+                }}
                 onClick={() => setOpen(false)}
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
-            <a
-              href="/#contact"
-              className="btn-gold"
-              style={{ marginTop: "0.5rem", justifyContent: "center" }}
-              onClick={() => setOpen(false)}
-            >
-              Book a Discovery Call
-            </a>
+            <div className="pt-2 flex flex-col gap-2">
+              <Link
+                href="/free-audit"
+                className="text-center py-2.5 rounded-lg font-medium text-sm"
+                style={{
+                  background: "rgba(255,255,255,0.06)",
+                  color: "#fff",
+                  border: "1px solid rgba(255,255,255,0.12)",
+                  textDecoration: "none",
+                }}
+                onClick={() => setOpen(false)}
+              >
+                Get Free Audit
+              </Link>
+              <Link
+                href="/book"
+                className="btn-gold"
+                style={{ justifyContent: "center" }}
+                onClick={() => setOpen(false)}
+              >
+                Book a Call
+              </Link>
+            </div>
           </div>
         </div>
       )}
