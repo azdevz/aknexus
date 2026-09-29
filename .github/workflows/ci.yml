@@ -1,0 +1,58 @@
+name: CI - Vercel app
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+# Give the workflow only the permission it needs to read this repository.
+permissions:
+  contents: read
+
+# Cancel an outdated check when a newer commit is pushed to the same PR/branch.
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  security:
+    name: Security checks
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v5
+
+      - name: Scan for exposed secrets
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  next-app:
+    name: Vercel app - lint and build
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: aknexus-next
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v5
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: aknexus-next/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Check production dependency vulnerabilities
+        run: npm audit --omit=dev --audit-level=high
+
+      - name: Build
+        run: npm run build
