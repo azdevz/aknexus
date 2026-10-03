@@ -15,9 +15,9 @@ export default function Footer() {
       className="pt-16 pb-12"
     >
       <div className="wrap">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-white/10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-white/10">
           {/* Column 1: Brand */}
-          <div>
+          <div className="lg:col-span-2">
             <Link href="/" className="flex items-center gap-2.5 mb-4 no-underline">
               <Image
                 src="/logo-square.png"
@@ -39,8 +39,8 @@ export default function Footer() {
                 NEXUS
               </span>
             </Link>
-            <p className="text-white/60 text-sm leading-relaxed mb-6 max-w-xs">
-              Websites, intake systems and marketing for small law firms.
+            <p className="text-white/60 text-sm leading-relaxed mb-6 max-w-sm">
+              Websites, speed-to-lead intake automation, and full-funnel marketing for small law firms, dental clinics, real estate teams, and appointment-driven practices.
             </p>
             <Link
               href="/free-audit"
@@ -50,13 +50,13 @@ export default function Footer() {
             </Link>
           </div>
 
-          {/* Column 2: Services */}
+          {/* Column 2: Industries */}
           <div>
             <h4
               style={{ fontFamily: "var(--font-display)" }}
               className="text-white font-bold text-sm uppercase tracking-wider mb-4"
             >
-              Services
+              Industries
             </h4>
             <ul className="space-y-2.5 text-sm list-none p-0 m-0">
               <li>
@@ -64,8 +64,79 @@ export default function Footer() {
                   href="/family-law"
                   className="text-white/70 hover:text-[#f5d88a] transition-colors no-underline"
                 >
-                  Family Law Growth
+                  Family Law
                 </Link>
+              </li>
+              <li>
+                <Link
+                  href="/industries/roofers"
+                  className="text-white/70 hover:text-[#f5d88a] transition-colors no-underline"
+                >
+                  Roofing Companies
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/industries/dental"
+                  className="text-white/70 hover:text-[#f5d88a] transition-colors no-underline"
+                >
+                  Dental Practices
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/industries/real-estate"
+                  className="text-white/70 hover:text-[#f5d88a] transition-colors no-underline"
+                >
+                  Real Estate
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/industries/salons"
+                  className="text-white/70 hover:text-[#f5d88a] transition-colors no-underline"
+                >
+                  Salons & Med Spas
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/industries/accounting"
+                  className="text-white/70 hover:text-[#f5d88a] transition-colors no-underline"
+                >
+                  Accounting & CPAs
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/industries/home-services"
+                  className="text-white/70 hover:text-[#f5d88a] transition-colors no-underline"
+                >
+                  Home Services
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Column 3: Platform */}
+          <div>
+            <h4
+              style={{ fontFamily: "var(--font-display)" }}
+              className="text-white font-bold text-sm uppercase tracking-wider mb-4"
+            >
+              Platform
+            </h4>
+            <ul className="space-y-2.5 text-sm list-none p-0 m-0">
+              <li>
+                <a
+                  href="https://dashboard.aknexus.co/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#f5d88a] font-semibold hover:underline transition-colors no-underline inline-flex items-center gap-1"
+                >
+                  <span>Client Portal</span>
+                  <ArrowUpRight size={13} />
+                </a>
               </li>
               <li>
                 <Link
@@ -83,26 +154,6 @@ export default function Footer() {
                   How It Works
                 </Link>
               </li>
-              <li>
-                <Link
-                  href="/free-audit"
-                  className="text-white/70 hover:text-[#f5d88a] transition-colors no-underline"
-                >
-                  Free Website & Intake Audit
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Column 3: Company */}
-          <div>
-            <h4
-              style={{ fontFamily: "var(--font-display)" }}
-              className="text-white font-bold text-sm uppercase tracking-wider mb-4"
-            >
-              Company
-            </h4>
-            <ul className="space-y-2.5 text-sm list-none p-0 m-0">
               <li>
                 <Link
                   href="/about"

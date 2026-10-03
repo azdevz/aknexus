@@ -3,7 +3,6 @@ import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import WhatsAppFloat from "@/components/WhatsAppFloat";
 import StickyMobileCTA from "@/components/StickyMobileCTA";
 import Script from "next/script";
 
@@ -77,7 +76,15 @@ export default function RootLayout({
         <main>{children}</main>
         <Footer />
         <StickyMobileCTA />
-        <WhatsAppFloat phone="971526365585" />
+
+        {/* GHL LeadConnector Chat Widget */}
+        <Script
+          id="lc-chat-widget"
+          src="https://widgets.leadconnectorhq.com/loader.js"
+          data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
+          data-widget-id="6abe8b0dcdeb03a6d5e2d21b"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
