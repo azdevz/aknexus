@@ -3,7 +3,7 @@ import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import WhatsAppFloat from "@/components/WhatsAppFloat";
+import StickyMobileCTA from "@/components/StickyMobileCTA";
 import Script from "next/script";
 
 const inter = Inter({
@@ -20,11 +20,12 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "AK Nexus | Enterprise AI & Digital Transformation Consulting",
+  metadataBase: new URL("https://aknexus.co"),
+  title: "AK Nexus | Websites, Intake & Marketing for Small Law Firms",
   description:
-    "AK Nexus helps organizations accelerate AI adoption, digital transformation, PMO excellence, and technology modernization through enterprise consulting services. Strategy First. AI Second. Business Outcomes Always.",
+    "One team and one monthly fee for your law firm's website, client intake system, local SEO and ads. You own everything. Built for solo and small firms.",
   keywords:
-    "Enterprise AI Consulting, Digital Transformation, Project Management Consulting, PMO Consulting, Technology Advisory, AI Strategy, Business Transformation, Intelligent Automation, Enterprise Consulting",
+    "Law firm marketing, legal intake automation, family law marketing, law firm website design, local SEO for lawyers, attorney advertising",
   authors: [{ name: "AK Nexus" }],
   icons: {
     icon: [
@@ -36,9 +37,9 @@ export const metadata: Metadata = {
     shortcut: "/logo-square.png",
   },
   openGraph: {
-    title: "AK Nexus | Enterprise AI & Digital Transformation Consulting",
+    title: "AK Nexus | Websites, Intake & Marketing for Small Law Firms",
     description:
-      "AK Nexus helps organizations transform with confidence through AI strategy, digital transformation, PMO excellence, automation, and technology advisory.",
+      "One team and one monthly fee for your law firm's website, client intake system, local SEO and ads. You own everything. Built for solo and small firms.",
     url: "https://aknexus.co",
     siteName: "AK Nexus",
     type: "website",
@@ -74,7 +75,16 @@ export default function RootLayout({
         <Navbar />
         <main>{children}</main>
         <Footer />
-        <WhatsAppFloat phone="971526365585" />
+        <StickyMobileCTA />
+
+        {/* GHL LeadConnector Chat Widget */}
+        <Script
+          id="lc-chat-widget"
+          src="https://widgets.leadconnectorhq.com/loader.js"
+          data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
+          data-widget-id="6abe8b0dcdeb03a6d5e2d21b"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
