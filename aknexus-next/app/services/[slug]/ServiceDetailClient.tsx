@@ -155,7 +155,7 @@ export default function ServiceDetailClient({ service }: { service: Service }) {
                     <a href={`https://wa.me/971526365585?text=Hi%20AK%20Nexus%2C%20I%27m%20interested%20in%20${encodeURIComponent(service.title)}.`} target="_blank" rel="noopener noreferrer" className="btn-gold">
                       Chat on WhatsApp <ArrowRight size={16} />
                     </a>
-                    <a href="/#contact" className="btn-ghost">Send a Message</a>
+                    <Link href="/#contact" className="btn-ghost">Send a Message</Link>
                   </div>
                 </div>
               </div>
@@ -183,9 +183,9 @@ export default function ServiceDetailClient({ service }: { service: Service }) {
                   <a href="https://wa.me/971526365585" target="_blank" rel="noopener noreferrer" className="btn-gold" style={{ justifyContent: "center", fontSize: "0.85rem", padding: "0.75rem 1.5rem" }}>
                     WhatsApp Us
                   </a>
-                  <a href="/#contact" className="btn-outline-navy" style={{ justifyContent: "center", fontSize: "0.85rem", padding: "0.75rem 1.5rem" }}>
+                  <Link href="/#contact" className="btn-outline-navy" style={{ justifyContent: "center", fontSize: "0.85rem", padding: "0.75rem 1.5rem" }}>
                     Contact Form
-                  </a>
+                  </Link>
                 </div>
               </div>
 

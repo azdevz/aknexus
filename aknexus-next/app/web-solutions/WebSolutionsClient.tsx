@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { ArrowRight, Check, Zap, Users, Globe, Headphones } from "lucide-react";
 
 const serviceCards = [
@@ -62,7 +63,7 @@ export default function WebSolutionsClient() {
           </motion.p>
           <motion.div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3 }}>
             <a href="https://wa.me/971526365585?text=Hi%20AK%20Nexus%2C%20I%27d%20like%20to%20discuss%20a%20web%20solution." target="_blank" rel="noopener noreferrer" className="btn-gold">Book Free Consultation <ArrowRight size={18} /></a>
-            <a href="/#services" className="btn-ghost">Explore Services</a>
+            <Link href="/#services" className="btn-ghost">Explore Services</Link>
           </motion.div>
         </div>
       </section>
@@ -163,7 +164,7 @@ export default function WebSolutionsClient() {
               <p style={{ color: "rgba(255,255,255,0.55)", maxWidth: "500px", margin: "0 auto 2.5rem", lineHeight: 1.7 }}>Book a free 30-minute consultation. No commitments — just expert advice on the best approach for your goals.</p>
               <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>
                 <a href="https://wa.me/971526365585?text=Hi%20AK%20Nexus%2C%20I%27d%20like%20to%20book%20a%20free%20consultation." target="_blank" rel="noopener noreferrer" className="btn-gold">Book Free Consultation <ArrowRight size={18} /></a>
-                <a href="/#contact" className="btn-ghost">Send a Message</a>
+                <Link href="/#contact" className="btn-ghost">Send a Message</Link>
               </div>
             </div>
           </motion.div>

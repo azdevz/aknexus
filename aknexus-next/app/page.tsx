@@ -180,7 +180,7 @@ export default function AgencyHomePage() {
               style={{ fontFamily: "var(--font-display)" }}
               className="text-3xl sm:text-4xl font-bold mt-2 text-white"
             >
-              Most small firms don't have a marketing problem.
+              Most small firms don&apos;t have a marketing problem.
               <br className="hidden sm:inline" />
               <span className="text-[#f5d88a]"> They have a follow-up problem.</span>
             </h2>
@@ -322,7 +322,7 @@ export default function AgencyHomePage() {
                   Tailored Practice Systems
                 </h3>
                 <p className="text-white/70 text-sm leading-relaxed">
-                  Explore dedicated workflows for Family Law, Dental, Real Estate, Salons, Accounting, and Home Services.
+                  Explore UAE workflows for car rental, clinics, home maintenance, landscaping, HVAC, home movers, vehicle recovery, real estate, and laundry.
                 </p>
               </div>
               <Link
@@ -355,7 +355,7 @@ export default function AgencyHomePage() {
               </Link>
             </div>
 
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-4">
               {ALL_INDUSTRIES.map((ind) => (
                 <Link
                   key={ind.slug}
@@ -493,7 +493,7 @@ export default function AgencyHomePage() {
               style={{ fontFamily: "var(--font-display)" }}
               className="text-3xl sm:text-4xl font-bold mt-2 text-white"
             >
-              What you'd otherwise piece together.
+              What you&apos;d otherwise piece together.
             </h2>
             <p className="text-white/60 text-sm mt-3">
               Typical market ranges from multiple fragmented vendors versus one unified, accountable partner.
@@ -539,7 +539,7 @@ export default function AgencyHomePage() {
                   AK Nexus All-In-One Partner
                 </span>
                 <span className="font-bold text-base text-white mt-1">
-                  From $1,000 to $2,000 / mo as one team, one report
+                  Plans from AED 2,500 / mo as one team, one report
                 </span>
               </div>
             </div>
@@ -582,7 +582,7 @@ export default function AgencyHomePage() {
               <div>
                 <h4 className="font-bold text-white text-base mb-1">No long lock-in</h4>
                 <p className="text-white/70 text-sm leading-relaxed">
-                  3-month minimum to build, test and optimize, then month-to-month with 30 days' notice. We keep your business through performance.
+                  3-month minimum to build, test and optimize, then month-to-month with 30 days&apos; notice. We keep your business through performance.
                 </p>
               </div>
             </div>
@@ -594,7 +594,7 @@ export default function AgencyHomePage() {
               <div>
                 <h4 className="font-bold text-white text-base mb-1">Signed cases, not vanity metrics</h4>
                 <p className="text-white/70 text-sm leading-relaxed">
-                  We don't brag about impressions or clicks. We track and report on consultations booked and retainers signed.
+                  We don&apos;t brag about impressions or clicks. We track and report on consultations booked and retainers signed.
                 </p>
               </div>
             </div>
@@ -695,7 +695,7 @@ export default function AgencyHomePage() {
             Ready to own your local market?
           </h2>
           <p className="text-lg text-white/70 leading-relaxed mb-8 max-w-xl mx-auto">
-            Get a free audit of your website and intake process. You'll receive a short, actionable written report, even if we never work together.
+            Get a free audit of your website and intake process. You&apos;ll receive a short, actionable written report, even if we never work together.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link

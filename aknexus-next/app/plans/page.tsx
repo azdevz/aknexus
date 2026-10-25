@@ -33,7 +33,7 @@ export default function PlansPage() {
             Simple plans. <span className="gold-text">No lock-in.</span>
           </h1>
           <p className="text-lg sm:text-xl text-white/75 leading-relaxed max-w-2xl mx-auto font-normal mb-8">
-            Pick the level of support that fits your firm. All plans include a 3-month minimum, then month-to-month with 30 days' notice. You own your website, accounts and data.
+            Pick the level of support that fits your business. All plans include a 3-month minimum, then month-to-month with 30 days&apos; notice. You own your website, accounts and data.
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-6 text-xs sm:text-sm text-white/60">
@@ -56,7 +56,7 @@ export default function PlansPage() {
       {/* Plans Grid */}
       <section className="py-12">
         <div className="wrap max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {AGENCY_PLANS.map((plan) => (
             <div
               key={plan.id}
@@ -78,7 +78,9 @@ export default function PlansPage() {
                   <span className="text-3xl sm:text-4xl font-extrabold text-[#f5d88a]">
                     {plan.price}
                   </span>
-                  <span className="text-white/60 text-sm"> / month</span>
+                  {plan.id !== "custom" && (
+                    <span className="text-white/60 text-sm"> / month</span>
+                  )}
                   <p className="text-xs text-white/50 mt-1 font-medium">{plan.setupFee}</p>
                 </div>
 
@@ -110,7 +112,9 @@ export default function PlansPage() {
                 <p className="text-[11px] text-white/40 mb-4 text-center">
                   {plan.id === "scale"
                     ? "Ad budget agreed on call and billed directly by Google/Meta."
-                    : "Prices shown are starting points confirmed on your audit call."}
+                    : plan.id === "custom"
+                      ? "A tailored AED quote based on your requirements."
+                      : "Monthly fees in AED. Setup is billed separately."}
                 </p>
                 <Link
                   href={plan.ctaHref}
@@ -183,7 +187,7 @@ export default function PlansPage() {
             <ul className="space-y-3 text-sm text-white/70 list-none p-0">
               <li className="flex items-start gap-2">
                 <span className="text-[#f5d88a]">•</span>
-                <span><strong>Commitment: </strong>3-month minimum to establish and optimize systems, then month-to-month with 30 days' written notice.</span>
+                <span><strong>Commitment: </strong>3-month minimum to establish and optimize systems, then month-to-month with 30 days&apos; written notice.</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-[#f5d88a]">•</span>
@@ -195,7 +199,7 @@ export default function PlansPage() {
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-[#f5d88a]">•</span>
-                <span><strong>Pass-Through Costs: </strong>Ad spend is paid directly by your firm to Google/Meta. Third-party telephony or specialized software licenses are billed directly without markup.</span>
+                <span><strong>Pass-Through Costs: </strong>Ad spend is paid directly by your business to Google/Meta. Third-party telephony or specialized software licenses are billed directly without markup.</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-[#f5d88a]">•</span>
@@ -260,7 +264,7 @@ export default function PlansPage() {
             Ready to confirm the right plan?
           </h2>
           <p className="text-white/70 text-base mb-8">
-            Book a 20-minute call. We'll review your current website, intake flow, and target market to confirm the exact scope.
+            Book a 20-minute call. We&apos;ll review your current website, intake flow, and target market to confirm the exact scope.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link href="/book" className="btn-gold px-8 py-3.5 rounded-xl font-semibold text-sm">

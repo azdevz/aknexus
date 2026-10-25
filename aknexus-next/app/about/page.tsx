@@ -51,7 +51,7 @@ export default function AboutPage() {
               With 15+ years leading technology and delivery programmes across fintech, SaaS platforms, and enterprise PMO, Ayaz founded AK Nexus to solve a widespread problem in professional services: <strong>the breakdown between marketing clicks and actual signed clients.</strong>
             </p>
             <p className="text-white/70 text-sm leading-relaxed mb-4">
-              Small law firms don't have the time or overhead to manage four different subscriptions, babysit a web agency, and chase leads on their personal phones while in court. We apply rigorous engineering and PMO principles—defined scope, automated handoffs, tracked delivery, and transparent reporting—to give solo and small firms an institutional front office.
+              Small law firms don&apos;t have the time or overhead to manage four different subscriptions, babysit a web agency, and chase leads on their personal phones while in court. We apply rigorous engineering and PMO principles—defined scope, automated handoffs, tracked delivery, and transparent reporting—to give solo and small firms an institutional front office.
             </p>
             <p className="text-white/70 text-sm leading-relaxed">
               We operate under a simple principle: <strong>You own everything we touch.</strong> Your website, your Google Business Profile, your CRM data, and your ad accounts remain 100% yours.
@@ -91,7 +91,7 @@ export default function AboutPage() {
               </div>
               <h3 className="font-bold text-lg text-white mb-2">Zero Lock-In</h3>
               <p className="text-white/70 text-sm leading-relaxed">
-                We don't trap clients in 12-month handcuffs. After an initial 3-month setup phase, agreements are month-to-month with 30 days' notice.
+                We don&apos;t trap clients in 12-month handcuffs. After an initial 3-month setup phase, agreements are month-to-month with 30 days&apos; notice.
               </p>
             </div>
 
@@ -115,7 +115,7 @@ export default function AboutPage() {
             style={{ fontFamily: "var(--font-display)" }}
             className="text-3xl sm:text-4xl font-extrabold text-white mb-4"
           >
-            Let's examine your firm's intake.
+            Let&apos;s examine your firm&apos;s intake.
           </h2>
           <p className="text-white/70 text-base leading-relaxed mb-8">
             Start with our free website and intake audit to see where prospective clients are falling through the cracks.

@@ -16,9 +16,9 @@ export const AGENCY_PLANS: Plan[] = [
   {
     id: "foundation",
     name: "Foundation",
-    price: "From $1,000",
+    price: "AED 2,500",
     setupFee: "$1,000 one-time setup",
-    bestFor: "Solo attorneys with steady referrals who need a reliable system behind them",
+    bestFor: "UAE service businesses that need a reliable enquiry and booking system",
     description: "Plug the leaks in your intake so every inquiry gets answered and tracked.",
     ctaText: "Book a Call",
     ctaHref: "/book",
@@ -28,7 +28,7 @@ export const AGENCY_PLANS: Plan[] = [
       "CRM with defined 5-stage pipeline",
       "Automated email/SMS follow-up & reminders",
       "Review request workflow",
-      "Monthly report: inquiries, consults & signed cases",
+      "Monthly report: inquiries, consults & confirmed bookings",
       "Ongoing website updates & technical support",
     ],
     deliverables: [
@@ -36,14 +36,14 @@ export const AGENCY_PLANS: Plan[] = [
         category: "Website & Conversion",
         items: [
           "Mobile-first speed & layout optimization",
-          "One clear call-to-action on every practice page",
+          "One clear call-to-action on every service page",
           "Fast SSL, hosting audit & security safeguards",
         ],
       },
       {
         category: "Intake & Automation",
         items: [
-          "Custom intake forms (no sensitive case details collected online)",
+          "Custom intake forms (no sensitive customer details collected online)",
           "Direct online consultation scheduling sync with your calendar",
           "Automated instant acknowledgement via email and SMS",
           "Pre-consultation reminders to reduce no-shows",
@@ -63,10 +63,10 @@ export const AGENCY_PLANS: Plan[] = [
   {
     id: "growth",
     name: "Growth",
-    price: "From $2,000",
+    price: "AED 5,000",
     setupFee: "$1,500 one-time setup",
     popular: true,
-    bestFor: "Firms that want more inquiries from local search and an active local profile",
+    bestFor: "Businesses that want more inquiries from local search and an active local profile",
     description: "Everything in Foundation plus local visibility, SEO, and review generation.",
     ctaText: "Book a Call",
     ctaHref: "/book",
@@ -90,8 +90,8 @@ export const AGENCY_PLANS: Plan[] = [
         category: "Local SEO & Presence",
         items: [
           "Full Google Business Profile optimization",
-          "Local citation building across legal & regional directories",
-          "On-page practice area optimization for local geographic terms",
+          "Local citation building across industry & regional directories",
+          "On-page service area optimization for local geographic terms",
           "Monthly content updates targeting high-intent local queries",
         ],
       },
@@ -108,18 +108,18 @@ export const AGENCY_PLANS: Plan[] = [
   {
     id: "scale",
     name: "Scale",
-    price: "From $3,500",
+    price: "AED 10,000",
     setupFee: "$2,000 one-time setup + ad spend",
-    bestFor: "Firms already spending on ads or ready to invest for rapid inbound client acquisition",
-    description: "Full-funnel client acquisition with Google/Meta ads managed for cost per signed case.",
+    bestFor: "Businesses already spending on ads or ready to invest for rapid inbound client acquisition",
+    description: "Full-funnel client acquisition with Google/Meta ads managed for cost per confirmed booking.",
     ctaText: "Book a Strategy Call",
     ctaHref: "/book",
     features: [
       "Everything in Growth, plus:",
       "Google Ads & Meta ads campaign management",
       "High-converting dedicated campaign landing pages",
-      "Call tracking & keyword-to-case attribution",
-      "Cost-per-signed-case reporting",
+      "Call tracking & keyword-to-booking attribution",
+      "Cost-per-confirmed-booking reporting",
       "Weekly campaign optimisation & monthly strategy call",
     ],
     deliverables: [
@@ -132,8 +132,8 @@ export const AGENCY_PLANS: Plan[] = [
       {
         category: "Paid Acquisition (PPC)",
         items: [
-          "Google Ads search campaigns targeting high-intent legal keywords",
-          "Meta retargeting campaigns (where compliant with state bar rules)",
+          "Google Ads search campaigns targeting high-intent service keywords",
+          "Meta retargeting campaigns where appropriate for your sector and audience",
           "Conversion-focused custom landing pages built for high intent",
           "Ad spend paid directly by you to Google/Meta (no markup)",
         ],
@@ -142,9 +142,36 @@ export const AGENCY_PLANS: Plan[] = [
         category: "Advanced Attribution",
         items: [
           "Dynamic call tracking number integration",
-          "Keyword-to-consultation and cost-per-signed-case tracking",
+          "Keyword-to-consultation and cost-per-confirmed-booking tracking",
           "Weekly bid adjustments and negative keyword pruning",
           "Monthly executive strategy call with your dedicated lead",
+        ],
+      },
+    ],
+  },
+  {
+    id: "custom",
+    name: "Custom",
+    price: "Custom",
+    setupFee: "Setup and scope quoted individually",
+    bestFor: "UAE businesses with multiple locations or bespoke requirements",
+    description: "A tailored combination of marketing, automation, and operational support.",
+    ctaText: "Discuss Your Requirements",
+    ctaHref: "/book",
+    features: [
+      "Tailored services and deliverables",
+      "Multi-location marketing support",
+      "Custom CRM integrations and automation",
+      "Agreed reporting and support schedule",
+    ],
+    deliverables: [
+      {
+        category: "Tailored Scope",
+        items: [
+          "Services selected around your business goals and locations",
+          "Custom integrations and workflows scoped together",
+          "Delivery timeline, reporting, and support agreed in your proposal",
+          "Pricing quoted in AED for your agreed scope",
         ],
       },
     ],
@@ -154,7 +181,7 @@ export const AGENCY_PLANS: Plan[] = [
 export const ADD_ONS = [
   {
     title: "Bookkeeping & Accounts Support",
-    description: "Monthly reconciliation and financial reporting for solo and small law practices.",
+    description: "Monthly reconciliation and financial reporting for small UAE businesses.",
   },
   {
     title: "Virtual Assistant Hours",
@@ -162,7 +189,7 @@ export const ADD_ONS = [
   },
   {
     title: "Project Management & Operations Support",
-    description: "Workflow streamlining, technology migration assistance, and practice operational audits.",
+    description: "Workflow streamlining, technology migration assistance, and business operational audits.",
   },
 ];
 
@@ -172,7 +199,7 @@ export const COMPARISON_DATA = [
   { item: "Marketing agency retainer", cost: "$1,500+ / mo" },
   { item: "Website care & hosting", cost: "Billed separately" },
   { item: "Total patchwork from multiple vendors", cost: "$1,950+ / mo (you manage all of it)" },
-  { item: "AK Nexus Growth", cost: "From $2,000 / mo (one team, one report, one contact)" },
+  { item: "AK Nexus Growth", cost: "AED 5,000 / mo (one team, one report, one contact)" },
 ];
 
 export const HOW_IT_WORKS_STEPS = [
@@ -190,7 +217,7 @@ export const HOW_IT_WORKS_STEPS = [
     timeline: "Week 1",
     title: "Align & Scope",
     description:
-      "A 45-minute kickoff to confirm your practice areas, target geographic area, tone of voice, calendar rules, and approval workflow. We set up access to your accounts.",
+      "A 45-minute kickoff to confirm your service areas, target geographic area, tone of voice, calendar rules, and approval workflow. We set up access to your accounts.",
   },
   {
     number: "03",
@@ -222,54 +249,16 @@ export const HOW_IT_WORKS_STEPS = [
     timeline: "Monthly",
     title: "Transparent Reporting",
     description:
-      "A clear monthly report showing inquiries, consultations booked, and signed cases by source. We hold a short review call to evaluate results and plan the next month.",
+      "A clear monthly report showing inquiries, consultations booked, and confirmed bookings by source. We hold a short review call to evaluate results and plan the next month.",
   },
 ];
 
 export const AGENCY_FAQS = [
-  {
-    question: "Do you guarantee case outcomes or lead volume?",
-    answer:
-      "No. Legitimate marketing and legal ethics rules prevent guarantees on cases, rankings, or lead counts. Results depend on your practice area, local market, competition, and how quickly your firm responds. We commit to defined deliverables, disciplined execution, and transparent reporting.",
-  },
-  {
-    question: "Are you a law firm or do you provide legal advice?",
-    answer:
-      "No. AK Nexus provides marketing, website development, and technology operations services. We are not a law firm and never provide legal advice or communicate regarding confidential client legal matters.",
-  },
-  {
-    question: "Will this replace Clio, MyCase, or our practice management software?",
-    answer:
-      "No. We manage the front-end journey: capture, immediate follow-up, consultation booking, and source attribution. Once an inquiry becomes a retained client, your practice management system (Clio, MyCase, PracticePanther, etc.) takes over for case management and billing.",
-  },
-  {
-    question: "Who owns our website, ad accounts, and client data?",
-    answer:
-      "You own 100% of everything. Your website files, domain, hosting, Google Business Profile, ad accounts, and CRM data remain in your name. If you ever leave, you take everything with you.",
-  },
-  {
-    question: "What are the contract terms?",
-    answer:
-      "All plans have an initial 3-month commitment to allow sufficient time to build, test, and generate traction. After 3 months, service continues on a month-to-month basis with 30 days' written notice to cancel.",
-  },
-  {
-    question: "How does ad spend work?",
-    answer:
-      "Ad spend is paid directly by your firm to Google or Meta with zero markup from us. Our monthly fee covers campaign strategy, copywriting, landing page development, conversion tracking, and ongoing bid optimization.",
-  },
-  {
-    question: "How long until we see results?",
-    answer:
-      "Intake improvements (instant auto-replies, appointment booking, reminder sequences) stop lead leakage in the first weeks. Local SEO typically takes 3 to 6 months to build sustained local search authority. Paid ads can drive traffic within days of launch.",
-  },
-  {
-    question: "Is our clients' confidential information protected?",
-    answer:
-      "Yes. We design our intake forms strictly to capture contact details and general practice interest—never sensitive case details, spouse names, or confidential case notes. Intake data lives in your firm's private CRM account protected by multi-factor authentication.",
-  },
-  {
-    question: "How do you handle state bar advertising compliance?",
-    answer:
-      "We build strictly around legal marketing ethics guidelines: no deceptive claims, no outcome promises, clear service disclaimers, and mandatory attorney review. You approve every page, ad, and message template prior to publication.",
-  },
+  { question: "Which UAE businesses do you work with?", answer: "Car rental, clinics, home maintenance, landscaping, HVAC, home movers, vehicle recovery, real estate, and laundry businesses. Other service businesses can request a custom scope." },
+  { question: "Do you guarantee bookings or rankings?", answer: "No. Results depend on demand, competition, budget, and your team's response. We commit to agreed deliverables and transparent reporting." },
+  { question: "Will this replace our existing business software?", answer: "We manage enquiry capture, follow-up, booking requests, and source tracking. Your operational systems continue to handle service delivery and billing. Integrations are scoped around your tools." },
+  { question: "Who owns our website, accounts, and data?", answer: "You retain ownership of your website, domain, advertising accounts, business profiles, and customer data." },
+  { question: "What are the contract terms?", answer: "An initial three-month commitment, followed by month-to-month service with 30 days' written notice." },
+  { question: "How does ad spend work?", answer: "Scale includes campaign management. Ad spend is separate and paid directly to Google or Meta with no markup from us." },
+  { question: "Who approves our content?", answer: "Your team approves service descriptions, offers, credentials, pages, and campaigns before publication. Sector-specific review and platform approvals are addressed in the agreed scope." },
 ];

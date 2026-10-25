@@ -1,3 +1,5 @@
+import { UAE_INDUSTRIES } from "./uae-industries";
+
 export interface LeakItem {
   title: string;
   desc: string;
@@ -162,7 +164,7 @@ export const FAMILY_LAW_CONTENT: IndustryPageContent = {
     { vendor: "SEO & local citation software", cost: "$100 – $200 / mo" },
   ],
   patchworkTotal: "$2,200+ / mo (and you manage 5 different vendors)",
-  nexusPrice: "From $1,000 to $2,000 / mo as one unified team & single report",
+  nexusPrice: "Plans from AED 2,500 / mo as one unified team & single report",
   comparisonNote: "Typical market rates based on separate subscriptions versus a unified, dedicated operations team.",
   howItWorksHeading: "Live in weeks, with a clear path.",
   howItWorksSteps: [
@@ -369,7 +371,7 @@ export const DENTAL_CONTENT: IndustryPageContent = {
     { vendor: "Local SEO & citation services", cost: "$200 – $400 / mo" },
   ],
   patchworkTotal: "$2,700+ / mo (with fragmented software & separate logins)",
-  nexusPrice: "From $1,000 to $2,000 / mo as one unified, dedicated growth team",
+  nexusPrice: "Plans from AED 2,500 / mo as one unified, dedicated growth team",
   comparisonNote: "Eliminate vendor fragmentation with a single team managing your entire patient acquisition pipeline.",
   howItWorksHeading: "Live in weeks, with zero disruption to your staff.",
   howItWorksSteps: [
@@ -566,7 +568,7 @@ export const REAL_ESTATE_CONTENT: IndustryPageContent = {
     { vendor: "Home valuation landing page tool", cost: "$100 – $200 / mo" },
   ],
   patchworkTotal: "$2,550+ / mo (plus your time stitching APIs together)",
-  nexusPrice: "From $1,000 to $2,000 / mo as your all-in-one marketing operations team",
+  nexusPrice: "Plans from AED 2,500 / mo as your all-in-one marketing operations team",
   comparisonNote: "One dedicated team handling your custom web presence, local SEO, listing campaigns, and lead automation.",
   howItWorksHeading: "Live in weeks. Built around your active transaction schedule.",
   howItWorksSteps: [
@@ -763,7 +765,7 @@ export const SALONS_CONTENT: IndustryPageContent = {
     { vendor: "Review generation tool", cost: "$150 – $300 / mo" },
   ],
   patchworkTotal: "$2,350+ / mo (with messy integrations & duplicate client records)",
-  nexusPrice: "From $1,000 to $2,000 / mo as your dedicated front-office growth team",
+  nexusPrice: "Plans from AED 2,500 / mo as your dedicated front-office growth team",
   comparisonNote: "One unified system that handles your web presence, booking automations, local SEO, and client retention.",
   howItWorksHeading: "Live in weeks. Stress-free onboarding for your team.",
   howItWorksSteps: [
@@ -960,7 +962,7 @@ export const ACCOUNTING_CONTENT: IndustryPageContent = {
     { vendor: "Local SEO & citation services", cost: "$200 – $400 / mo" },
   ],
   patchworkTotal: "$2,250+ / mo (plus dozens of administrative hours managing it)",
-  nexusPrice: "From $1,000 to $2,000 / mo as your dedicated marketing operations team",
+  nexusPrice: "Plans from AED 2,500 / mo as your dedicated marketing operations team",
   comparisonNote: "One unified team managing your web presence, qualification funnels, local SEO, and client pipeline.",
   howItWorksHeading: "Live in weeks, with minimal time required from you.",
   howItWorksSteps: [
@@ -1157,7 +1159,7 @@ export const HOME_SERVICES_CONTENT: IndustryPageContent = {
     { vendor: "Review request tool", cost: "$150 – $300 / mo" },
   ],
   patchworkTotal: "$3,050+ / mo (competing against 5 contractors for the same shared lead)",
-  nexusPrice: "From $1,000 to $2,000 / mo for 100% exclusive leads & complete asset ownership",
+  nexusPrice: "Plans from AED 2,500 / mo for 100% exclusive leads & complete asset ownership",
   comparisonNote: "Build your own exclusive pipeline instead of renting shared leads from middleman directories.",
   howItWorksHeading: "Live in weeks. We handle the technology while you build.",
   howItWorksSteps: [
@@ -1362,7 +1364,7 @@ export const ROOFERS_CONTENT: IndustryPageContent = {
     { vendor: "Review generation tool", cost: "$150 – $250 / mo" },
   ],
   patchworkTotal: "$3,450+ / mo (and you're still competing against 5 roofers for the same shared lead)",
-  nexusPrice: "From $1,000 to $2,000 / mo for 100% exclusive jobs, speed-to-lead & total asset ownership",
+  nexusPrice: "Plans from AED 2,500 / mo for 100% exclusive jobs, speed-to-lead & total asset ownership",
   comparisonNote: "Build permanent local equity in your own brand instead of endlessly renting shared leads.",
   howItWorksHeading: "Live in weeks—ready before the next storm season.",
   howItWorksSteps: [
@@ -1475,7 +1477,7 @@ export const ROOFERS_CONTENT: IndustryPageContent = {
     "Get a free audit of your roofing website, Google Maps ranking, and missed-call follow-up. See exactly what it takes to own your local market.",
 };
 
-export const ALL_INDUSTRIES: IndustryPageContent[] = [
+const LEGACY_INDUSTRIES: IndustryPageContent[] = [
   FAMILY_LAW_CONTENT,
   ROOFERS_CONTENT,
   DENTAL_CONTENT,
@@ -1485,6 +1487,9 @@ export const ALL_INDUSTRIES: IndustryPageContent[] = [
   HOME_SERVICES_CONTENT,
 ];
 
+export const ALL_INDUSTRIES: IndustryPageContent[] = UAE_INDUSTRIES;
+
 export function getIndustryBySlug(slug: string): IndustryPageContent | undefined {
-  return ALL_INDUSTRIES.find((ind) => ind.slug === slug);
+  return ALL_INDUSTRIES.find((ind) => ind.slug === slug)
+    ?? LEGACY_INDUSTRIES.find((ind) => ind.slug === slug);
 }

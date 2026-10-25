@@ -17,9 +17,56 @@ import {
 } from "lucide-react";
 
 const INDUSTRY_OPTIONS = [
-  { id: "HOME & TRADE (Roofers, Plumber, etc.)", label: "Home & Trade", desc: "Roofers, HVAC, Plumbers, Contractors" },
-  { id: "HEALTH & WELLNESS (Dentists, Salons, etc.)", label: "Health & Wellness", desc: "Dentists, Med Spas, Clinics, Salons" },
-  { id: "PROPERTY & PROFESSIONAL (Law Firms, Auto Repairs, etc.)", label: "Professional & Legal", desc: "Law Firms, CPAs, Real Estate, Auto" },
+  {
+    "id": "Car Rental",
+    "label": "Car Rental",
+    "desc": "Daily, weekly & monthly rentals"
+  },
+  {
+    "id": "Clinics",
+    "label": "Clinics",
+    "desc": "Medical, dental & specialist clinics"
+  },
+  {
+    "id": "Home Maintenance",
+    "label": "Home Maintenance",
+    "desc": "Repairs, plumbing & electrical"
+  },
+  {
+    "id": "Landscaping",
+    "label": "Landscaping",
+    "desc": "Gardens, irrigation & maintenance"
+  },
+  {
+    "id": "HVAC",
+    "label": "HVAC",
+    "desc": "AC installation, repairs & servicing"
+  },
+  {
+    "id": "Home Movers",
+    "label": "Home Movers",
+    "desc": "Villa, apartment & office moves"
+  },
+  {
+    "id": "Vehicle Recovery",
+    "label": "Vehicle Recovery",
+    "desc": "Towing & roadside assistance"
+  },
+  {
+    "id": "Real Estate",
+    "label": "Real Estate",
+    "desc": "Brokerages, leasing & property sales"
+  },
+  {
+    "id": "Laundry",
+    "label": "Laundry",
+    "desc": "Laundry, dry cleaning & collection"
+  },
+  {
+    "id": "Other",
+    "label": "Other",
+    "desc": "Tell us about your UAE business"
+  }
 ];
 
 const SERVICE_OPTIONS = [

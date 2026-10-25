@@ -4,30 +4,33 @@ import {
   ArrowRight,
   ShieldCheck,
   Building2,
-  Scale,
-  Sparkles,
+  Car,
+  Trees,
+  Wind,
+  Truck,
+  Shirt,
   Stethoscope,
   Wrench,
-  Calculator,
-  Hammer,
   CheckCircle2,
 } from "lucide-react";
 import { ALL_INDUSTRIES } from "@/data/industries";
 
 export const metadata: Metadata = {
-  title: "Industry Solutions & Dedicated Practice Systems | AK Nexus",
+  title: "UAE Industry Solutions | AK Nexus",
   description:
-    "Tailored websites, speed-to-lead automation, local SEO, and client acquisition systems built for small practices and high-ticket service businesses.",
+    "Tailored websites, speed-to-lead automation, local SEO, and client acquisition systems built for car rental, clinics, home maintenance, landscaping, HVAC, movers, recovery, real estate, and laundry businesses in the UAE.",
 };
 
 const iconMap: Record<string, React.ReactNode> = {
-  "family-law": <Scale size={28} className="text-[#f5d88a]" />,
-  "roofers": <Hammer size={28} className="text-[#f5d88a]" />,
-  "dental": <Stethoscope size={28} className="text-[#f5d88a]" />,
+  "car-rental": <Car size={28} className="text-[#f5d88a]" />,
+  "clinics": <Stethoscope size={28} className="text-[#f5d88a]" />,
+  "home-maintenance": <Wrench size={28} className="text-[#f5d88a]" />,
+  "landscaping": <Trees size={28} className="text-[#f5d88a]" />,
+  "hvac": <Wind size={28} className="text-[#f5d88a]" />,
+  "home-movers": <Truck size={28} className="text-[#f5d88a]" />,
+  "vehicle-recovery": <Truck size={28} className="text-[#f5d88a]" />,
   "real-estate": <Building2 size={28} className="text-[#f5d88a]" />,
-  "salons": <Sparkles size={28} className="text-[#f5d88a]" />,
-  "accounting": <Calculator size={28} className="text-[#f5d88a]" />,
-  "home-services": <Wrench size={28} className="text-[#f5d88a]" />,
+  "laundry": <Shirt size={28} className="text-[#f5d88a]" />,
 };
 
 export default function IndustriesIndexPage() {
@@ -44,7 +47,7 @@ export default function IndustriesIndexPage() {
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[rgba(201,168,76,0.3)] bg-[rgba(201,168,76,0.08)] mb-6">
             <span className="w-2 h-2 rounded-full bg-[#f5d88a] animate-pulse" />
             <span className="text-xs uppercase tracking-widest font-semibold text-[#f5d88a]">
-              Dedicated Practice Verticals
+              Built for UAE Businesses
             </span>
           </div>
 
@@ -56,13 +59,13 @@ export default function IndustriesIndexPage() {
           </h1>
 
           <p className="text-lg sm:text-xl text-white/75 leading-relaxed max-w-2xl mx-auto font-normal mb-8">
-            Every vertical has unique intake patterns, customer urgency, and compliance rules. We build dedicated front-end systems tailored to how your clients search and buy.
+            From clinic appointments to AC repairs and car rentals, we build websites and enquiry workflows around your UAE customers, service areas, and booking process.
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-6 text-xs sm:text-sm text-white/60">
             <span className="flex items-center gap-1.5">
               <CheckCircle2 size={16} className="text-[#f5d88a]" />
-              Industry-compliant messaging
+              Industry-specific workflows
             </span>
             <span className="flex items-center gap-1.5">
               <CheckCircle2 size={16} className="text-[#f5d88a]" />
@@ -120,7 +123,7 @@ export default function IndustriesIndexPage() {
             style={{ fontFamily: "var(--font-display)" }}
             className="text-3xl sm:text-4xl font-extrabold text-white mb-4"
           >
-            Don't see your specific industry?
+            Don&apos;t see your specific industry?
           </h2>
           <p className="text-lg text-white/70 mb-8 max-w-xl mx-auto">
             Our core operating model—high-converting websites, automated speed-to-lead, and transparent reporting—adapts perfectly to any appointment-driven business.

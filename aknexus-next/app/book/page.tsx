@@ -6,6 +6,18 @@ import { Mail, Clock, Phone, ShieldCheck, CheckCircle2, ExternalLink, Calendar }
 const CALENDLY_URL =
   "https://calendly.com/aknexus/20min?hide_gdpr_banner=1&background_color=020818&text_color=ffffff&primary_color=c9a84c";
 
+// Calendly inline widget API (loaded via the external widget script)
+declare global {
+  interface Window {
+    Calendly?: {
+      initInlineWidget: (opts: {
+        url: string;
+        parentElement: HTMLElement | null;
+      }) => void;
+    };
+  }
+}
+
 export default function BookPage() {
   return (
     <div className="bg-[#020818] text-white selection:bg-[#c9a84c] selection:text-black min-h-screen">
@@ -16,8 +28,8 @@ export default function BookPage() {
         strategy="lazyOnload"
         onLoad={() => {
           // Initialise the inline widget once the script is ready
-          if (typeof (window as any).Calendly !== "undefined") {
-            (window as any).Calendly.initInlineWidget({
+          if (typeof window.Calendly !== "undefined") {
+            window.Calendly?.initInlineWidget({
               url: CALENDLY_URL,
               parentElement: document.getElementById("calendly-embed"),
             });
@@ -41,8 +53,8 @@ export default function BookPage() {
               Book a <span className="gold-text">20-minute strategy call.</span>
             </h1>
             <p className="text-base sm:text-lg text-white/75 leading-relaxed">
-              We'll walk through your current inquiry flow, speed-to-lead bottlenecks, and tell you
-              honestly whether we're a fit. No sales pressure.
+              We&apos;ll walk through your current inquiry flow, speed-to-lead bottlenecks, and tell you
+              honestly whether we&apos;re a fit. No sales pressure.
             </p>
           </div>
 
@@ -72,13 +84,13 @@ export default function BookPage() {
                   <ShieldCheck size={16} className="text-[#f5d88a] flex-shrink-0 mt-0.5" />
                   <span>
                     <strong>Clear Roadmap: </strong>Direct recommendation on which plan matches
-                    your firm's capacity.
+                    your firm&apos;s capacity.
                   </span>
                 </li>
               </ul>
 
               <div className="p-4 rounded-2xl border border-white/10 bg-white/5 mb-6">
-                <p className="text-xs text-white/70 mb-2">Can't see the calendar?</p>
+                <p className="text-xs text-white/70 mb-2">Can&apos;t see the calendar?</p>
                 <a
                   href="https://calendly.com/aknexus/20min"
                   target="_blank"

@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { CheckCircle, Users, Globe, Award, ArrowRight } from "lucide-react";
 
 const processSteps = [
@@ -90,9 +91,9 @@ export default function About() {
             </div>
 
             <div style={{ display: "flex", gap: "0.875rem", flexWrap: "wrap" }}>
-              <a href="/#contact" className="btn-gold">
+              <Link href="/#contact" className="btn-gold">
                 Work With Us <ArrowRight size={16} />
-              </a>
+              </Link>
             </div>
           </motion.div>
 

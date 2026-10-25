@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { Shield, ArrowRight, Check, Building, CreditCard, Globe, Zap } from "lucide-react";
 
 const painPoints = [
@@ -46,7 +47,7 @@ export default function DigitalBankingClient() {
           </motion.p>
           <motion.div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3 }}>
             <a href="https://wa.me/971526365585?text=Hi%20AK%20Nexus%2C%20I%20want%20to%20discuss%20Digital%20Banking%20UAE." target="_blank" rel="noopener noreferrer" className="btn-gold">Start Your Banking Journey <ArrowRight size={18} /></a>
-            <a href="/#contact" className="btn-ghost">Book Free Consultation</a>
+            <Link href="/#contact" className="btn-ghost">Book Free Consultation</Link>
           </motion.div>
         </div>
       </section>
@@ -128,7 +129,7 @@ export default function DigitalBankingClient() {
               <p style={{ color: "rgba(255,255,255,0.55)", maxWidth: "500px", margin: "0 auto 2.5rem", lineHeight: 1.7 }}>Let&apos;s build your compliant, secure banking solution. Our team responds within 24 hours.</p>
               <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>
                 <a href="https://wa.me/971526365585?text=Hi%20AK%20Nexus%2C%20I%20want%20to%20discuss%20Digital%20Banking%20UAE." target="_blank" rel="noopener noreferrer" className="btn-gold">Chat on WhatsApp <ArrowRight size={18} /></a>
-                <a href="/#contact" className="btn-ghost">Send a Message</a>
+                <Link href="/#contact" className="btn-ghost">Send a Message</Link>
               </div>
             </div>
           </motion.div>

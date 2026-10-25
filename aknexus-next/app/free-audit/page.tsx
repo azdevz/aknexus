@@ -27,7 +27,7 @@ export default function FreeAuditPage() {
               Get your free <span className="gold-text">website &amp; intake audit.</span>
             </h1>
             <p className="text-base sm:text-lg text-white/75 leading-relaxed">
-              Tell us about your business. We'll analyze your website, speed-to-lead follow-up, and
+              Tell us about your business. We&apos;ll analyze your website, speed-to-lead follow-up, and
               conversion friction, and deliver an actionable written report within 48 hours.
             </p>
           </div>
@@ -40,7 +40,7 @@ export default function FreeAuditPage() {
                 className="text-lg font-bold text-white mb-4 flex items-center gap-2"
               >
                 <FileSearch size={20} className="text-[#f5d88a]" />
-                What you'll get:
+                What you&apos;ll get:
               </h3>
               <ul className="space-y-4 text-sm text-white/80 list-none p-0 mb-8">
                 <li className="flex items-start gap-2.5">

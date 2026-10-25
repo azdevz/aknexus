@@ -4,17 +4,17 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Menu, X, ChevronDown, Scale, Stethoscope, Building2, Sparkles, Calculator, Wrench, Hammer, ExternalLink } from "lucide-react";
+import { Menu, X, ChevronDown, Car, Stethoscope, Building2, Trees, Wind, Truck, Shirt, Wrench, ExternalLink } from "lucide-react";
 
-const industriesList = [
-  { name: "Family Law", href: "/family-law", icon: Scale, tag: "Divorce & Custody" },
-  { name: "Roofing Companies", href: "/industries/roofers", icon: Hammer, tag: "Roof Repair & Replacement" },
-  { name: "Dental Practices", href: "/industries/dental", icon: Stethoscope, tag: "Clinics & Orthodontics" },
-  { name: "Real Estate", href: "/industries/real-estate", icon: Building2, tag: "Agents & Brokerages" },
-  { name: "Salons & Med Spas", href: "/industries/salons", icon: Sparkles, tag: "Aesthetics & Clinics" },
-  { name: "Accounting & CPA", href: "/industries/accounting", icon: Calculator, tag: "Tax & Advisory" },
-  { name: "Home Services", href: "/industries/home-services", icon: Wrench, tag: "HVAC, Plumbing & Trades" },
-];
+import { UAE_SECTORS } from "@/data/uae-sectors";
+
+const sectorIcons = { Car, Stethoscope, Wrench, Trees, Wind, Truck, Building2, Shirt };
+const industriesList = UAE_SECTORS.map((sector) => ({
+  name: sector.name,
+  href: `/industries/${sector.slug}`,
+  icon: sectorIcons[sector.icon],
+  tag: sector.tag,
+}));
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);

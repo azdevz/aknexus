@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { processSteps } from "@/data/content";
 import { ArrowRight } from "lucide-react";
 
@@ -82,12 +83,12 @@ export default function Discovery() {
           <p style={{ color: "rgba(255,255,255,0.45)", fontSize: "0.85rem", marginBottom: "1.25rem" }}>
             No commitment required · 30 minutes, no obligations
           </p>
-          <a
+          <Link
             href="/#contact"
             className="btn-gold"
           >
             Schedule a Discovery Call <ArrowRight size={18} />
-          </a>
+          </Link>
         </motion.div>
       </div>
     </section>

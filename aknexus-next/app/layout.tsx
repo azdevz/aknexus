@@ -21,11 +21,11 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://aknexus.co"),
-  title: "AK Nexus | Websites, Intake & Marketing for Small Law Firms",
+  title: "AK Nexus | Websites, Automation & Marketing for UAE Businesses",
   description:
-    "One team and one monthly fee for your law firm's website, client intake system, local SEO and ads. You own everything. Built for solo and small firms.",
+    "Websites, enquiry automation, local SEO and ads for UAE service businesses. Plans from AED 2,500 per month. You own your website, accounts and data.",
   keywords:
-    "Law firm marketing, legal intake automation, family law marketing, law firm website design, local SEO for lawyers, attorney advertising",
+    "UAE business marketing, website development UAE, enquiry automation, local SEO UAE, service business marketing",
   authors: [{ name: "AK Nexus" }],
   icons: {
     icon: [
@@ -37,9 +37,9 @@ export const metadata: Metadata = {
     shortcut: "/logo-square.png",
   },
   openGraph: {
-    title: "AK Nexus | Websites, Intake & Marketing for Small Law Firms",
+    title: "AK Nexus | Websites, Automation & Marketing for UAE Businesses",
     description:
-      "One team and one monthly fee for your law firm's website, client intake system, local SEO and ads. You own everything. Built for solo and small firms.",
+      "Websites, enquiry automation, local SEO and ads for UAE service businesses. Plans from AED 2,500 per month. You own your website, accounts and data.",
     url: "https://aknexus.co",
     siteName: "AK Nexus",
     type: "website",

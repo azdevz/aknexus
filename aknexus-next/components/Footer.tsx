@@ -1,4 +1,5 @@
 "use client";
+import { UAE_SECTORS } from "@/data/uae-sectors";
 
 import Link from "next/link";
 import Image from "next/image";
@@ -59,62 +60,13 @@ export default function Footer() {
               Industries
             </h4>
             <ul className="space-y-2.5 text-sm list-none p-0 m-0">
-              <li>
-                <Link
-                  href="/family-law"
-                  className="text-white/70 hover:text-[#f5d88a] transition-colors no-underline"
-                >
-                  Family Law
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/industries/roofers"
-                  className="text-white/70 hover:text-[#f5d88a] transition-colors no-underline"
-                >
-                  Roofing Companies
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/industries/dental"
-                  className="text-white/70 hover:text-[#f5d88a] transition-colors no-underline"
-                >
-                  Dental Practices
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/industries/real-estate"
-                  className="text-white/70 hover:text-[#f5d88a] transition-colors no-underline"
-                >
-                  Real Estate
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/industries/salons"
-                  className="text-white/70 hover:text-[#f5d88a] transition-colors no-underline"
-                >
-                  Salons & Med Spas
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/industries/accounting"
-                  className="text-white/70 hover:text-[#f5d88a] transition-colors no-underline"
-                >
-                  Accounting & CPAs
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/industries/home-services"
-                  className="text-white/70 hover:text-[#f5d88a] transition-colors no-underline"
-                >
-                  Home Services
-                </Link>
-              </li>
+              {UAE_SECTORS.map((sector) => (
+                <li key={sector.slug}>
+                  <Link href={`/industries/${sector.slug}`} className="text-white/70 hover:text-[#f5d88a] transition-colors no-underline">
+                    {sector.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 

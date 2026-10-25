@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { ArrowRight, Target, Globe, Shield, ChevronDown } from "lucide-react";
 
 const stats = [
@@ -167,15 +168,15 @@ export default function Hero() {
             transition={{ duration: 0.7, delay: 0.3 }}
             style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap", marginBottom: "4rem" }}
           >
-            <a
+            <Link
               href="/#contact"
               className="btn-gold"
             >
               Schedule a Discovery Call <ArrowRight size={18} />
-            </a>
-            <a href="/#services" className="btn-ghost">
+            </Link>
+            <Link href="/#services" className="btn-ghost">
               Explore Our Services
-            </a>
+            </Link>
           </motion.div>
 
           {/* Stats row */}

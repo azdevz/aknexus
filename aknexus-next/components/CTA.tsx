@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { ArrowRight, Calendar } from "lucide-react";
 
 export default function CTA() {
@@ -35,12 +36,12 @@ export default function CTA() {
               Whether you&apos;re planning an AI initiative, modernizing operations, strengthening programme governance, or delivering enterprise transformation — AK Nexus is ready to help.
             </p>
             <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>
-              <a href="/#contact" className="btn-gold">
+              <Link href="/#contact" className="btn-gold">
                 <Calendar size={18} /> Book a Discovery Call
-              </a>
-              <a href="/#services" className="btn-ghost">
+              </Link>
+              <Link href="/#services" className="btn-ghost">
                 Explore Our Services <ArrowRight size={18} />
-              </a>
+              </Link>
             </div>
           </div>
         </motion.div>

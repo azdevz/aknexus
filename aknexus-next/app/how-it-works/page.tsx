@@ -31,7 +31,7 @@ export default function HowItWorksPage() {
             From audit to launch in <span className="gold-text">weeks.</span>
           </h1>
           <p className="text-lg sm:text-xl text-white/75 leading-relaxed max-w-2xl mx-auto font-normal mb-8">
-            A disciplined, milestone-driven approach to upgrading your law firm's website, intake automations, and ongoing local marketing.
+            A disciplined, milestone-driven approach to upgrading your law firm&apos;s website, intake automations, and ongoing local marketing.
           </p>
 
           {/* Core Callout */}
@@ -145,7 +145,7 @@ export default function HowItWorksPage() {
             Start with Step 1: The Free Audit
           </h2>
           <p className="text-white/70 text-base leading-relaxed mb-8">
-            Tell us your website URL and state. We'll examine your mobile performance and intake flow and deliver a short written report.
+            Tell us your website URL and state. We&apos;ll examine your mobile performance and intake flow and deliver a short written report.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
