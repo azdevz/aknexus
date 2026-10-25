@@ -4,12 +4,12 @@ import { useEffect } from "react";
 
 interface LeadFormEmbedProps {
   className?: string;
-  minHeight?: string | number;
+  initialHeight?: number;
 }
 
 export default function LeadFormEmbed({
   className = "",
-  minHeight = 892,
+  initialHeight = 892,
 }: LeadFormEmbedProps) {
   useEffect(() => {
     // Inject the form_embed script if not already present in DOM
@@ -23,16 +23,13 @@ export default function LeadFormEmbed({
     }
   }, []);
 
-  const heightVal = typeof minHeight === "number" ? `${minHeight}px` : minHeight;
-
   return (
-    <div className={`w-full overflow-hidden ${className}`} style={{ minHeight: heightVal }}>
+    <div className={`w-full ${className}`}>
       <iframe
         src="https://api.aknexus.co/widget/form/eOtYaK3qTI4zmaKxsEcz"
         style={{
           width: "100%",
-          height: "100%",
-          minHeight: heightVal,
+          height: `${initialHeight}px`,
           border: "none",
           borderRadius: "8px",
           display: "block",
@@ -46,7 +43,7 @@ export default function LeadFormEmbed({
         data-deactivation-type="neverDeactivate"
         data-deactivation-value=""
         data-form-name="Lead form for aknexus.co"
-        data-height="892"
+        data-height={initialHeight}
         data-layout-iframe-id="inline-eOtYaK3qTI4zmaKxsEcz"
         data-form-id="eOtYaK3qTI4zmaKxsEcz"
         data-cookie-consent="true"

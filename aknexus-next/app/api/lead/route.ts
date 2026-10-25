@@ -1,232 +1,114 @@
-import { NextResponse, after } from "next/server";
+import { NextResponse } from "next/server";
+import { INDUSTRY_OPTIONS, SERVICE_OPTIONS } from "@/data/lead-options";
 
-// GHL form identifiers (LeadConnectorHQ native form)
-const FORM_ID = "eOtYaK3qTI4zmaKxsEcz";
-const LOCATION_ID = "9WoI9uJc4yEHv5jr0TCy";
-
-// GHL's native form submit service (extracted from GHL's own widget bundle).
-// formId & locationId are QUERY PARAMETERS — not path segments.
-const GHL_FORMS_SERVICE_URL = "https://backend.leadconnectorhq.com";
-
-// Field tags of this specific GHL form (from the form definition).
-// GHL rejects unknown properties in formData with 422 "property should not
-// exist", so only these tags plus the documented metadata keys may be sent.
-const GHL_FIELDS = {
-  fullName: "full_name",
-  email: "email",
-  phone: "phone",
-  industry: "dGofHnMnssMX0H4JsImP", // single dropdown
-  services: "GSpLikjYcr62jy1754kS", // multi dropdown
-  terms: "terms_and_conditions",
-};
+const GHL_URL = "https://services.leadconnectorhq.com/contacts/upsert";
+const INDUSTRY_FIELD_ID = "dGofHnMnssMX0H4JsImP";
+const SERVICES_FIELD_ID = "GSpLikjYcr62jy1754kS";
 
 export async function POST(req: Request) {
+  let body: Record<string, unknown>;
   try {
-    const body = await req.json();
-    const {
-      fullName,
-      name,
-      email,
-      phone,
-      industry,
-      services,
-      service,
-      message,
-      consent,
-      pageUrl,
-      referrer,
-    } = body;
-
-    const contactName = fullName || name || "";
-    const contactEmail = (email || "").trim();
-    const contactPhone = (phone || "").trim();
-
-    // Server-side validation
-    if (!contactEmail || !contactEmail.includes("@")) {
-      return NextResponse.json(
-        { error: "Please provide a valid email address." },
-        { status: 400 }
-      );
-    }
-
-    if (!contactPhone) {
-      return NextResponse.json(
-        { error: "Please provide a phone number." },
-        { status: 400 }
-      );
-    }
-
-    // Normalize services array
-    let normalizedServices: string[] = [];
-    if (Array.isArray(services) && services.length > 0) {
-      normalizedServices = services;
-    } else if (typeof services === "string" && services.trim()) {
-      normalizedServices = [services.trim()];
-    } else if (typeof service === "string" && service.trim()) {
-      normalizedServices = [service.trim()];
-    } else {
-      normalizedServices = ["Local SEO"];
-    }
-
-    // Fire-and-forget GHL submission — always succeed for the user.
-    // `after()` (next/server) keeps this running after the response is sent.
-    after(async () => {
-      const result = await submitToGHL({
-        contactName,
-        contactEmail,
-        contactPhone,
-        industry,
-        normalizedServices,
-        consent,
-        message,
-        pageUrl,
-        referrer,
-      });
-      if (result.ok) {
-        console.log(
-          `GHL submit OK → contactId=${result.contactId || "n/a"} (form ${FORM_ID})`
-        );
-      } else {
-        console.error(
-          `GHL submit FAILED → ${result.status}: ${result.detail}`
-        );
-      }
-    });
-
-    // Always return success to the user — lead data is logged server-side
-    console.log("Lead submission received:", {
-      name: contactName,
-      email: contactEmail,
-      phone: contactPhone,
-      industry,
-      services: normalizedServices,
-      pageUrl,
-    });
-
-    return NextResponse.json({
-      success: true,
-      message: "Form received successfully",
-    });
-  } catch (error: unknown) {
-    console.error("Lead route error:", error);
-    return NextResponse.json(
-      { error: "Server error processing lead submission. Please try again." },
-      { status: 500 }
-    );
-  }
-}
-
-interface GhlSubmitInput {
-  contactName: string;
-  contactEmail: string;
-  contactPhone: string;
-  industry?: string;
-  normalizedServices: string[];
-  consent?: boolean;
-  message?: string;
-  pageUrl?: string;
-  referrer?: string;
-}
-
-interface GhlSubmitResult {
-  ok: boolean;
-  status: number;
-  detail: string;
-  contactId?: string;
-}
-
-/**
- * Submits a lead to GHL exactly like the native embedded form does:
- *
- *   POST {FORMS_SERVICE_URL}/forms/submit?formId=…&locationId=…
- *   multipart/form-data:
- *     - formData  : JSON string of field values (keyed by the form's field tags)
- *     - formId    : form id
- *     - locationId: location id
- *     - challengeToken / turnstileNonInteractiveToken (only when captcha is on)
- */
-async function submitToGHL(input: GhlSubmitInput): Promise<GhlSubmitResult> {
-  const {
-    contactName,
-    contactEmail,
-    contactPhone,
-    industry,
-    normalizedServices,
-    consent,
-    message,
-    pageUrl,
-    referrer,
-  } = input;
-
-  // Field values keyed by the form's real tags. Do NOT add extra keys —
-  // GHL validates them against the form schema (422 "property should not exist").
-  const submissionData: Record<string, unknown> = {
-    [GHL_FIELDS.fullName]: contactName,
-    [GHL_FIELDS.email]: contactEmail,
-    [GHL_FIELDS.phone]: contactPhone,
-  };
-
-  if (industry) {
-    submissionData[GHL_FIELDS.industry] = industry;
-  }
-  // Multi-select fields are submitted as an array of option strings
-  submissionData[GHL_FIELDS.services] = normalizedServices;
-
-  // T&C checkbox carries the literal value "terms_and_conditions" when checked
-  if (consent) {
-    submissionData[GHL_FIELDS.terms] = "terms_and_conditions";
+    const parsed = await req.json();
+    if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) throw new Error();
+    body = parsed;
+  } catch {
+    return NextResponse.json({ error: "Invalid form submission." }, { status: 400 });
   }
 
-  if (message) {
-    submissionData.message = message;
+  const fullName = typeof body.fullName === "string" ? body.fullName.trim() : "";
+  const email = typeof body.email === "string" ? body.email.trim() : "";
+  const phone = typeof body.phone === "string" ? body.phone.trim() : "";
+  const industry = typeof body.industry === "string" ? body.industry : "";
+  const services = Array.isArray(body.services) ? [...new Set(body.services)] : [];
+
+  if (!fullName || fullName.length > 200 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || email.length > 254) {
+    return NextResponse.json({ error: "Please provide your name and a valid email address." }, { status: 400 });
+  }
+  if (!/^\+[1-9]\d{6,14}$/.test(phone.replace(/[\s()-]/g, ""))) {
+    return NextResponse.json({ error: "Please include your country code, for example +971, in your phone number." }, { status: 400 });
+  }
+  if (!INDUSTRY_OPTIONS.some((option) => option.id === industry) || !services.length || services.some((value) => typeof value !== "string" || !SERVICE_OPTIONS.includes(value))) {
+    return NextResponse.json({ error: "Please select a valid industry and services." }, { status: 400 });
+  }
+  if (typeof body.consent !== "boolean") {
+    return NextResponse.json({ error: "Please specify your communication preference." }, { status: 400 });
   }
 
-  // Metadata the native widget always sends (page attribution)
-  submissionData.eventData = {
-    pageUrl: pageUrl || "",
-    referrer: referrer || "",
-    medium: "Form",
-    mediumId: FORM_ID,
-  };
-  submissionData.timeSpent = 0;
-  submissionData.disqualified = false;
-
-  const formBody = new FormData();
-  formBody.set("formData", JSON.stringify(submissionData));
-  formBody.append("formId", FORM_ID);
-  formBody.append("locationId", LOCATION_ID);
-
-  const url = `${GHL_FORMS_SERVICE_URL}/forms/submit?formId=${FORM_ID}&locationId=${LOCATION_ID}`;
-
-  const controller = new AbortController();
-  const timeoutId = setTimeout(() => controller.abort(), 6000);
+  const token = process.env.GHL_PRIVATE_INTEGRATION_TOKEN;
+  const locationId = process.env.GHL_LOCATION_ID;
+  const pipelineId = process.env.GHL_PIPELINE_ID;
+  const pipelineStageId = process.env.GHL_PIPELINE_STAGE_ID;
+  if (!token || !locationId || !pipelineId || !pipelineStageId) {
+    console.error("Lead integration is not configured.");
+    return NextResponse.json({ error: "The form is temporarily unavailable. Please try again later." }, { status: 503 });
+  }
 
   try {
-    const response = await fetch(url, {
+    const response = await fetch(GHL_URL, {
       method: "POST",
-      body: formBody,
-      signal: controller.signal,
+      headers: {
+        Authorization: `Bearer ${token}`,
+        Version: "v3",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        locationId,
+        name: fullName,
+        email,
+        phone: phone.replace(/[\s()-]/g, ""),
+        source: "AK Nexus Website — Free Audit",
+        createNewIfDuplicateAllowed: false,
+        customFields: [
+          { id: INDUSTRY_FIELD_ID, fieldValue: industry },
+          { id: SERVICES_FIELD_ID, fieldValue: services },
+        ],
+        // Never clear an existing opt-out when updating a contact.
+        ...(body.consent === false ? { dnd: true } : {}),
+      }),
+      signal: AbortSignal.timeout(15000),
+      cache: "no-store",
     });
-
-    const responseText = await response.text().catch(() => "");
-    const snippet = responseText.slice(0, 300);
-
-    if (response.ok) {
-      let contactId: string | undefined;
-      try {
-        const json = JSON.parse(responseText);
-        contactId = json?.contactId || json?.contact?.id;
-      } catch {
-        // non-JSON success — ignore
-      }
-      return { ok: true, status: response.status, detail: snippet, contactId };
+    const result = await response.json().catch(() => null);
+    if (!response.ok || typeof result?.contact?.id !== "string" || !result.contact.id) {
+      // Keep credentials, contact details, and upstream response bodies out of logs.
+      console.error("GHL contact save failed", { status: response.status, traceId: result?.traceId });
+      return NextResponse.json({ error: "We could not save your request. Please try again or contact us directly." }, { status: 502 });
     }
-
-    return { ok: false, status: response.status, detail: snippet };
-  } catch (err) {
-    const reason = err instanceof Error ? err.message : String(err);
-    return { ok: false, status: 0, detail: `request error: ${reason}` };
-  } finally {
-    clearTimeout(timeoutId);
+    const contactId = result.contact.id;
+    const opportunityHeaders = {
+      Authorization: `Bearer ${token}`,
+      Version: "v3",
+      "Content-Type": "application/json",
+    };
+    // Preserve an existing deal's stage/status instead of resetting it on resubmission.
+    const query = new URLSearchParams({ locationId, pipelineId, contactId, limit: "1" });
+    const lookup = await fetch(`https://services.leadconnectorhq.com/opportunities/search?${query}`, {
+      headers: opportunityHeaders, signal: AbortSignal.timeout(15000), cache: "no-store",
+    });
+    const existing = await lookup.json().catch(() => null);
+    if (!lookup.ok || !Array.isArray(existing?.opportunities)) {
+      console.error("GHL opportunity lookup failed", { status: lookup.status, contactId });
+      return NextResponse.json({ error: "Your contact was saved, but we could not complete your audit request. Please try again." }, { status: 502 });
+    }
+    if (!existing.opportunities.length) {
+      const created = await fetch("https://services.leadconnectorhq.com/opportunities/", {
+        method: "POST", headers: opportunityHeaders,
+        body: JSON.stringify({
+          locationId, pipelineId, pipelineStageId, contactId,
+          name: `${fullName} — Free Audit`, status: "open",
+        }),
+        signal: AbortSignal.timeout(15000), cache: "no-store",
+      });
+      const opportunity = await created.json().catch(() => null);
+      if (!created.ok || !opportunity?.opportunity?.id) {
+        console.error("GHL opportunity creation failed", { status: created.status, contactId });
+        return NextResponse.json({ error: "Your contact was saved, but we could not complete your audit request. Please try again." }, { status: 502 });
+      }
+    }
+    console.info("GHL contact and opportunity saved", { contactId });
+    return NextResponse.json({ success: true, message: "Your request has been saved successfully." });
+  } catch {
+    console.error("GHL contact save request failed or timed out.");
+    return NextResponse.json({ error: "We could not confirm your request. Please try again." }, { status: 502 });
   }
 }

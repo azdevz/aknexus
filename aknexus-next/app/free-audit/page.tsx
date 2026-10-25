@@ -1,104 +1,55 @@
 "use client";
 
-import Link from "next/link";
-import {
-  CheckCircle2,
-  FileSearch,
-  Lock,
-  ExternalLink,
-} from "lucide-react";
+import { ArrowUpRight, CheckCircle2, Clock3, ShieldCheck } from "lucide-react";
 import LeadForm from "@/components/LeadForm";
+
+const auditItems = [
+  { title: "Website & mobile experience", description: "Find the slow pages and usability issues that cost you enquiries." },
+  { title: "Your enquiry journey", description: "See where customers drop off between their first visit and a booking." },
+  { title: "Follow-up & response times", description: "Spot missed calls, unanswered messages, and gaps in your process." },
+  { title: "Three practical improvements", description: "Get a clear set of priorities your team can act on." },
+];
 
 export default function FreeAuditPage() {
   return (
-    <div className="bg-[#020818] text-white selection:bg-[#c9a84c] selection:text-black min-h-screen">
-      <section className="pt-36 pb-24 md:pt-44 md:pb-28">
-        <div className="wrap max-w-5xl mx-auto">
-          <div className="text-center max-w-2xl mx-auto mb-12">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[rgba(201,168,76,0.3)] bg-[rgba(201,168,76,0.08)] mb-6">
-              <span className="text-xs uppercase tracking-widest font-semibold text-[#f5d88a]">
-                100% Free • No Obligation Audit
-              </span>
-            </div>
-            <h1
-              style={{ fontFamily: "var(--font-display)" }}
-              className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight mb-4 text-white"
-            >
-              Get your free <span className="gold-text">website &amp; intake audit.</span>
+    <div className="min-h-screen bg-[#020818] text-white selection:bg-[#c9a84c] selection:text-black">
+      <section className="pt-28 pb-16 sm:pt-32 lg:pt-36 lg:pb-24">
+        <div className="wrap max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-8 lg:gap-16 items-start">
+          <div className="lg:pt-6">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#f5d88a] mb-5">A fresh look at your business</p>
+            <h1 style={{ fontFamily: "var(--font-display)" }} className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-[1.15] mb-5">
+              More enquiries.<br /><span className="gold-text">Fewer missed opportunities.</span>
             </h1>
-            <p className="text-base sm:text-lg text-white/75 leading-relaxed">
-              Tell us about your business. We&apos;ll analyze your website, speed-to-lead follow-up, and
-              conversion friction, and deliver an actionable written report within 48 hours.
+            <p className="text-base sm:text-lg text-white/65 leading-relaxed max-w-lg">
+              Get a free website and enquiry audit, with practical steps to turn more visitors into customers.
+            </p>
+            <div className="flex flex-wrap gap-x-5 gap-y-3 mt-6 text-xs sm:text-sm text-white/75">
+              <span className="inline-flex items-center gap-2"><Clock3 size={16} className="text-[#f5d88a]" />Report within 48 hours</span>
+              <span className="inline-flex items-center gap-2"><ShieldCheck size={16} className="text-[#f5d88a]" />Free, with no obligation</span>
+            </div>
+            <div className="hidden lg:block mt-10 pt-8 border-t border-white/10">
+              <h2 className="text-sm font-semibold text-white mb-6">What your audit covers</h2>
+              <ul className="space-y-5 list-none p-0">
+                {auditItems.map((item) => (
+                  <li key={item.title} className="flex items-start gap-3">
+                    <CheckCircle2 size={18} className="text-[#c9a84c] shrink-0 mt-0.5" />
+                    <div><h3 className="text-sm font-semibold mb-1">{item.title}</h3><p className="text-sm leading-relaxed text-white/55">{item.description}</p></div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <p className="hidden lg:block mt-8 text-sm text-white/55">
+              Prefer a conversation? <a href="https://calendly.com/aknexus/20min" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-[#f5d88a] hover:underline">Book a 20-minute call <ArrowUpRight size={14} /></a>
             </p>
           </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
-            {/* What you'll get side card */}
-            <div className="lg:col-span-5 p-8 rounded-3xl border border-white/10 bg-white/[0.02]">
-              <h3
-                style={{ fontFamily: "var(--font-display)" }}
-                className="text-lg font-bold text-white mb-4 flex items-center gap-2"
-              >
-                <FileSearch size={20} className="text-[#f5d88a]" />
-                What you&apos;ll get:
-              </h3>
-              <ul className="space-y-4 text-sm text-white/80 list-none p-0 mb-8">
-                <li className="flex items-start gap-2.5">
-                  <CheckCircle2 size={16} className="text-[#f5d88a] flex-shrink-0 mt-0.5" />
-                  <span>
-                    <strong>Website Speed &amp; Mobile Test: </strong>Real performance benchmarking
-                    across mobile devices.
-                  </span>
-                </li>
-                <li className="flex items-start gap-2.5">
-                  <CheckCircle2 size={16} className="text-[#f5d88a] flex-shrink-0 mt-0.5" />
-                  <span>
-                    <strong>Conversion Path Audit: </strong>Review of how easily visitors turn into
-                    booked consultations or calls.
-                  </span>
-                </li>
-                <li className="flex items-start gap-2.5">
-                  <CheckCircle2 size={16} className="text-[#f5d88a] flex-shrink-0 mt-0.5" />
-                  <span>
-                    <strong>Speed-to-Lead Assessment: </strong>Analysis of missed calls, after-hours
-                    leaks, and booking friction.
-                  </span>
-                </li>
-                <li className="flex items-start gap-2.5">
-                  <CheckCircle2 size={16} className="text-[#f5d88a] flex-shrink-0 mt-0.5" />
-                  <span>
-                    <strong>Top 3 Priority Fixes: </strong>Actionable fixes you can immediately
-                    implement to win more clients.
-                  </span>
-                </li>
-              </ul>
-
-              <div className="p-4 rounded-xl border border-white/10 bg-white/5 text-xs text-white/60 leading-relaxed flex items-start gap-2 mb-6">
-                <Lock size={15} className="text-[#f5d88a] flex-shrink-0 mt-0.5" />
-                <span>
-                  Zero sales pressure. You receive a concise report and retain full ownership of
-                  your data, whether we work together or not.
-                </span>
-              </div>
-
-              <div className="pt-6 border-t border-white/10">
-                <p className="text-xs text-white/60 mb-3">Want to speak with us right away?</p>
-                <a
-                  href="https://calendly.com/aknexus/20min"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#f5d88a] hover:underline"
-                >
-                  <span>Schedule 20-Min Strategy Call Directly</span>
-                  <ExternalLink size={13} />
-                </a>
-              </div>
-            </div>
-
-            {/* Lead Form */}
-            <div className="lg:col-span-7">
-              <LeadForm />
-            </div>
+          <div className="min-w-0">
+            <LeadForm />
+          </div>
+          <div className="lg:hidden border-t border-white/10 pt-6">
+            <h2 className="font-semibold mb-4">What your audit covers</h2>
+            <ul className="grid sm:grid-cols-2 gap-3 list-none p-0 text-sm text-white/70">
+              {auditItems.map((item) => <li key={item.title} className="flex items-center gap-2"><CheckCircle2 size={16} className="text-[#c9a84c] shrink-0" />{item.title}</li>)}
+            </ul>
           </div>
         </div>
       </section>
