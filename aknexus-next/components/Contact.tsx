@@ -54,7 +54,7 @@ export default function Contact() {
             style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}
           >
             {[
-              { icon: <MapPin size={18} />, title: "UAE Office", lines: ["AK NEXUS FZ LLC", "RAKEZ Compass Coworking", "Ras Al Khaimah, UAE", "+971 66 78 3871"] },
+              { icon: <MapPin size={18} />, title: "UAE Office", lines: ["AK NEXUS FZ LLC", "RAKEZ Compass Coworking", "Ras Al Khaimah, UAE", "+971 66 78 3871", "+971 54 130 8844"] },
               { icon: <MapPin size={18} />, title: "USA Office", lines: ["AK NEXUS LLC", "30 N Gould St Ste R", "Sheridan, WY 82801", "+1 307 403 0755"] },
               { icon: <Mail size={18} />, title: "Email", lines: ["info@aknexus.co", "hr@aknexus.co"] },
             ].map((item) => (
@@ -64,7 +64,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <p style={{ fontFamily: "var(--font-display)", fontWeight: 700, color: "#0a1628", fontSize: "0.875rem", marginBottom: "0.35rem" }}>{item.title}</p>
-                  {item.lines.map((l) => <p key={l} style={{ color: "#64748b", fontSize: "0.82rem", lineHeight: 1.6 }}>{l}</p>)}
+                  {item.lines.map((l) => <p key={l} style={{ color: "#64748b", fontSize: "0.82rem", lineHeight: 1.6 }}>{l.startsWith("+") ? <a href={`tel:${l.replaceAll(" ", "")}`}>{l}</a> : l}</p>)}
                 </div>
               </div>
             ))}

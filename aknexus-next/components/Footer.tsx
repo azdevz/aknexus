@@ -168,6 +168,12 @@ export default function Footer() {
                   +1 307 403 0755
                 </a>
               </li>
+              <li className="flex items-center gap-2">
+                <Phone size={15} className="text-[#f5d88a] flex-shrink-0" />
+                <a href="tel:+971541308844" className="text-white/70 hover:text-[#f5d88a] transition-colors no-underline">
+                  +971 54 130 8844
+                </a>
+              </li>
               <li className="flex items-start gap-2 text-xs leading-relaxed text-white/60">
                 <MapPin size={15} className="text-[#f5d88a] flex-shrink-0 mt-0.5" />
                 <span>

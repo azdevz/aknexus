@@ -6,12 +6,12 @@ const fs = require('node:fs');
 const path = require('node:path');
 
 function load(file, requireMock, extras = {}) {
-  const module = { exports: {} };
+  const testModule = { exports: {} };
   const js = ts.transpileModule(fs.readFileSync(path.join(__dirname, '..', file), 'utf8'), {
     compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022 },
   }).outputText;
-  vm.runInNewContext(js, { module, exports: module.exports, require: requireMock, ...extras });
-  return module.exports;
+  vm.runInNewContext(js, { module: testModule, exports: testModule.exports, require: requireMock, ...extras });
+  return testModule.exports;
 }
 const options = load('data/lead-options.ts');
 const valid = { fullName: 'Integration Test', email: 'test@example.com', phone: '+12025550198', industry: 'Car Rental', services: ['Local SEO'], consent: false };

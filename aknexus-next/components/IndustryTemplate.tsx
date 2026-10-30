@@ -25,6 +25,7 @@ import {
   Check,
 } from "lucide-react";
 import { IndustryPageContent } from "@/data/industries";
+import { usdEquivalent, withUsdEquivalent, USD_CONVERSION_NOTE } from "@/lib/pricing";
 import { AGENCY_PLANS } from "@/data/agency";
 
 export default function IndustryTemplate({ data }: { data: IndustryPageContent }) {
@@ -96,6 +97,9 @@ export default function IndustryTemplate({ data }: { data: IndustryPageContent }
       {/* 2. STATBAR SECTION */}
       <section className="border-y border-white/10 bg-[rgba(5,13,31,0.85)] py-8 relative z-20">
         <div className="wrap max-w-6xl mx-auto">
+          {data.stats.some((stat) => usdEquivalent(stat.number)) && (
+            <p className="text-center text-xs text-white/60 mb-4">{USD_CONVERSION_NOTE}</p>
+          )}
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 text-center">
             {data.stats.map((stat, i) => (
               <div
@@ -108,6 +112,9 @@ export default function IndustryTemplate({ data }: { data: IndustryPageContent }
                 >
                   {stat.number}
                 </span>
+                {usdEquivalent(stat.number) && (
+                  <span className="text-xs text-white/60 mb-2">≈ {usdEquivalent(stat.number)} / month</span>
+                )}
                 <span className="text-xs sm:text-sm font-semibold text-white/90">
                   {stat.label}
                 </span>
@@ -322,7 +329,7 @@ export default function IndustryTemplate({ data }: { data: IndustryPageContent }
                   AK Nexus Unified Partner
                 </span>
                 <span className="font-bold text-base text-white mt-1">
-                  {data.nexusPrice}
+                  {withUsdEquivalent(data.nexusPrice)}
                 </span>
               </div>
             </div>
@@ -451,7 +458,7 @@ export default function IndustryTemplate({ data }: { data: IndustryPageContent }
                   </button>
                   {isOpen && (
                     <div className="px-6 pb-6 text-sm text-white/70 leading-relaxed border-t border-white/5 pt-4">
-                      {faq.answer}
+                      {withUsdEquivalent(faq.answer)}
                     </div>
                   )}
                 </div>
