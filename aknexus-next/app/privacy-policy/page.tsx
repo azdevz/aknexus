@@ -33,7 +33,7 @@ export default function PrivacyPolicyPage() {
           title: "3. Email & SMS Communications (Opt-Out)",
           body: [
             "When you provide your email or phone number and consent to communications, we may send you written audit reports, scheduling updates, service notifications, and practice growth insights.",
-            "You may opt out of SMS communications at any time by replying 'STOP'. You may opt out of marketing emails by clicking the 'Unsubscribe' link in any email or by contacting hello@aknexus.co. Message and data rates may apply.",
+            "You may opt out of SMS communications at any time by replying 'STOP'. You may opt out of marketing emails by clicking the 'Unsubscribe' link in any email or by contacting hello@mail.aknexus.co. Message and data rates may apply.",
           ],
         },
         {
@@ -52,7 +52,7 @@ export default function PrivacyPolicyPage() {
           title: "6. Data Retention, Security & Deletion Requests",
           body: [
             "We retain inquiry information only as long as necessary for legitimate business, legal, and operational purposes. We implement administrative, physical, and technical safeguards including encryption and multi-factor authentication.",
-            "You have the right to request access to, correction of, or permanent deletion of your personal data by emailing hello@aknexus.co.",
+            "You have the right to request access to, correction of, or permanent deletion of your personal data by emailing hello@mail.aknexus.co.",
           ],
         },
         {
@@ -60,7 +60,7 @@ export default function PrivacyPolicyPage() {
           body: [
             "AK NEXUS LLC",
             "30 N Gould St Ste R, Sheridan, WY 82801, USA",
-            "Email: hello@aknexus.co | Phone: +1 307 403 0755",
+            "Email: hello@mail.aknexus.co | Phone: +1 307 403 0755",
           ],
         },
       ]}

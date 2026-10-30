@@ -106,10 +106,10 @@ export default function BookPage() {
                 <p className="text-xs text-white/60">Prefer email or phone?</p>
                 <div className="flex flex-col gap-1.5 text-xs">
                   <a
-                    href="mailto:hello@aknexus.co"
+                    href="mailto:hello@mail.aknexus.co"
                     className="text-white/80 hover:text-[#f5d88a] transition-colors flex items-center gap-2"
                   >
-                    <Mail size={13} className="text-[#f5d88a]" /> hello@aknexus.co
+                    <Mail size={13} className="text-[#f5d88a]" /> hello@mail.aknexus.co
                   </a>
                   <a
                     href="tel:+13074030755"

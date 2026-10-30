@@ -34,7 +34,7 @@ export default function LegalPage({ eyebrow, title, intro, sections }: LegalPage
           ))}
           <section style={{ paddingBottom: 0 }}>
             <h2 style={{ color: "#0a1628", fontSize: "1.2rem", fontWeight: 700, marginBottom: ".7rem" }}>Contact us</h2>
-            <p style={{ color: "#64748b", fontSize: ".92rem", lineHeight: 1.75 }}>For questions about this page, please contact AK Nexus at <a href="mailto:hello@aknexus.co" style={{ color: "#a8872f", fontWeight: 700 }}>hello@aknexus.co</a>.</p>
+            <p style={{ color: "#64748b", fontSize: ".92rem", lineHeight: 1.75 }}>For questions about this page, please contact AK Nexus at <a href="mailto:hello@mail.aknexus.co" style={{ color: "#a8872f", fontWeight: 700 }}>hello@mail.aknexus.co</a>.</p>
           </section>
         </article>
 
