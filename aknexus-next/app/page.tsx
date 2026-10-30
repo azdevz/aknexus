@@ -25,6 +25,7 @@ import {
   Calculator,
   Check,
 } from "lucide-react";
+import { withUsdEquivalent } from "@/lib/pricing";
 import { AGENCY_PLANS, AGENCY_FAQS } from "@/data/agency";
 import { ALL_INDUSTRIES } from "@/data/industries";
 
@@ -539,7 +540,7 @@ export default function AgencyHomePage() {
                   AK Nexus All-In-One Partner
                 </span>
                 <span className="font-bold text-base text-white mt-1">
-                  Plans from AED 2,500 / mo as one team, one report
+                  {withUsdEquivalent("Plans from AED 2,500 / mo as one team, one report")}
                 </span>
               </div>
             </div>

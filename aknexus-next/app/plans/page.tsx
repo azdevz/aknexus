@@ -13,8 +13,11 @@ import {
 } from "lucide-react";
 import { AGENCY_PLANS, ADD_ONS, AGENCY_FAQS } from "@/data/agency";
 
+import { usdEquivalent, USD_CONVERSION_NOTE } from "@/lib/pricing";
+
 export default function PlansPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [currency, setCurrency] = useState<"AED" | "USD">("AED");
 
   return (
     <div className="bg-[#020818] text-white selection:bg-[#c9a84c] selection:text-black">
@@ -56,6 +59,23 @@ export default function PlansPage() {
       {/* Plans Grid */}
       <section className="py-12">
         <div className="wrap max-w-6xl mx-auto">
+        <div className="flex flex-col items-center gap-3 mb-5">
+          <span id="pricing-currency-label" className="text-sm text-white/75">Monthly pricing currency</span>
+          <div role="group" aria-labelledby="pricing-currency-label" className="inline-flex gap-1 rounded-full border border-white/20 bg-white/5 p-1">
+            {(["AED", "USD"] as const).map((option) => (
+              <button
+                key={option}
+                type="button"
+                aria-pressed={currency === option}
+                onClick={() => setCurrency(option)}
+                className={`rounded-full px-7 py-3 text-sm font-semibold cursor-pointer transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#f5d88a] ${currency === option ? "bg-[#c9a84c] text-black" : "text-white/75 hover:bg-white/10 hover:text-white"}`}
+              >
+                {option}
+              </button>
+            ))}
+          </div>
+        </div>
+        <p className="text-center text-sm text-white/60 mb-8">{USD_CONVERSION_NOTE}</p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {AGENCY_PLANS.map((plan) => (
             <div
@@ -74,12 +94,15 @@ export default function PlansPage() {
 
               <div>
                 <h3 className="font-bold text-2xl text-white mb-2">{plan.name}</h3>
-                <div className="mb-4">
+                <div className="mb-4" aria-live="polite" aria-atomic="true">
                   <span className="text-3xl sm:text-4xl font-extrabold text-[#f5d88a]">
-                    {plan.price}
+                    {currency === "USD" ? usdEquivalent(plan.price) ?? plan.price : plan.price}
                   </span>
                   {plan.id !== "custom" && (
                     <span className="text-white/60 text-sm"> / month</span>
+                  )}
+                  {currency === "USD" && usdEquivalent(plan.price) && (
+                    <p className="text-sm text-white/70 mt-2">Rounded estimate · billed at {plan.price} / month</p>
                   )}
                   <p className="text-xs text-white/50 mt-1 font-medium">{plan.setupFee}</p>
                 </div>
