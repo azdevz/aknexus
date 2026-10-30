@@ -56,7 +56,7 @@ export default function Contact() {
             {[
               { icon: <MapPin size={18} />, title: "UAE Office", lines: ["AK NEXUS FZ LLC", "RAKEZ Compass Coworking", "Ras Al Khaimah, UAE", "+971 66 78 3871", "+971 54 130 8844"] },
               { icon: <MapPin size={18} />, title: "USA Office", lines: ["AK NEXUS LLC", "30 N Gould St Ste R", "Sheridan, WY 82801", "+1 307 403 0755"] },
-              { icon: <Mail size={18} />, title: "Email", lines: ["info@aknexus.co", "hr@aknexus.co"] },
+              { icon: <Mail size={18} />, title: "Email", lines: ["hello@mail.aknexus.co", "hr@aknexus.co"] },
             ].map((item) => (
               <div key={item.title} style={{ display: "flex", gap: "1rem" }}>
                 <div style={{ width: "40px", height: "40px", borderRadius: "0.75rem", background: "linear-gradient(135deg,#0a1628,#1e3a5f)", display: "flex", alignItems: "center", justifyContent: "center", color: "#c9a84c", flexShrink: 0 }}>
@@ -64,7 +64,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <p style={{ fontFamily: "var(--font-display)", fontWeight: 700, color: "#0a1628", fontSize: "0.875rem", marginBottom: "0.35rem" }}>{item.title}</p>
-                  {item.lines.map((l) => <p key={l} style={{ color: "#64748b", fontSize: "0.82rem", lineHeight: 1.6 }}>{l.startsWith("+") ? <a href={`tel:${l.replaceAll(" ", "")}`}>{l}</a> : l}</p>)}
+                  {item.lines.map((l) => <p key={l} style={{ color: "#64748b", fontSize: "0.82rem", lineHeight: 1.6 }}>{l.startsWith("+") ? <a href={`tel:${l.replaceAll(" ", "")}`}>{l}</a> : l.includes("@") ? <a href={`mailto:${l}`}>{l}</a> : l}</p>)}
                 </div>
               </div>
             ))}
