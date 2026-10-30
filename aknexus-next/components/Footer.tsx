@@ -186,12 +186,8 @@ export default function Footer() {
                 <MapPin size={15} className="text-[#f5d88a] flex-shrink-0 mt-0.5" />
                 <span>
                   AK NEXUS FZ LLC<br />
-                  <a href="https://www.google.com/search?kgmid=%2Fg%2F11nyr0jmqk" target="_blank" rel="noopener noreferrer" className="hover:text-[#f5d88a] transition-colors">
-                    RAKEZ Compass Coworking
-                  </a><br />
-                  <a href="https://www.google.com/search?kgmid=%2Fg%2F121djg4n" target="_blank" rel="noopener noreferrer" className="hover:text-[#f5d88a] transition-colors">
-                    Ras Al Khaimah, UAE
-                  </a>
+                  RAKEZ Compass Coworking<br />
+                  Ras Al Khaimah, UAE
                 </span>
               </li>
             </ul>
