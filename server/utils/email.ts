@@ -21,7 +21,7 @@ export async function sendContactNotification(submission: ContactSubmission): Pr
 
     // Setup email data
     const msg = {
-      to: 'aknexus.uae@gmail.com',
+      to: 'ayazchishti99@gmail.com',
       from: 'no-reply@aknexus.co', // This should be a verified sender in your SendGrid account
       subject: `New Contact Form: ${submission.subject}`,
       text: messageContent,

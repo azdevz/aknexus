@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Menu, X, ChevronDown, Car, Stethoscope, Building2, Trees, Wind, Truck, Shirt, Wrench, ExternalLink } from "lucide-react";
+import { Menu, X, ChevronDown, Car, Stethoscope, Building2, Trees, Wind, Truck, Shirt, Wrench } from "lucide-react";
 
 import { UAE_SECTORS } from "@/data/uae-sectors";
 
@@ -183,15 +183,6 @@ export default function Navbar() {
 
         {/* CTA Buttons */}
         <div className="hidden md:flex items-center gap-3">
-          <a
-            href="https://dashboard.aknexus.co/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-xs uppercase tracking-wider font-semibold text-white/75 hover:text-[#f5d88a] no-underline transition-colors px-2 py-1 flex items-center gap-1.5"
-          >
-            <span>Client Portal</span>
-            <ExternalLink size={13} />
-          </a>
           <Link
             href="/free-audit"
             className="text-xs uppercase tracking-wider font-semibold text-white/75 hover:text-white no-underline transition-colors px-2 py-1"
@@ -279,16 +270,6 @@ export default function Navbar() {
             </Link>
 
             <div className="pt-2 flex flex-col gap-2">
-              <a
-                href="https://dashboard.aknexus.co/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-center py-2.5 rounded-lg font-medium text-sm bg-white/5 border border-white/10 text-white no-underline flex items-center justify-center gap-2 hover:text-[#f5d88a]"
-                onClick={() => setOpen(false)}
-              >
-                <span>Client Portal</span>
-                <ExternalLink size={14} />
-              </a>
               <Link
                 href="/free-audit"
                 className="text-center py-2.5 rounded-lg font-medium text-sm bg-white/5 border border-white/10 text-white no-underline"

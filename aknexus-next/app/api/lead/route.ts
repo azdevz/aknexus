@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { sendSubmissionEmail } from "@/lib/submission-email";
 import { INDUSTRY_OPTIONS, SERVICE_OPTIONS } from "@/data/lead-options";
 
 const GHL_URL = "https://services.leadconnectorhq.com/contacts/upsert";
@@ -105,10 +106,15 @@ export async function POST(req: Request) {
         return NextResponse.json({ error: "Your contact was saved, but we could not complete your audit request. Please try again." }, { status: 502 });
       }
     }
+    await sendSubmissionEmail("AK Nexus free audit request", email, [
+      `Name: ${fullName}`, `Email: ${email}`, `Phone: ${phone}`,
+      `Industry: ${industry}`, `Services: ${services.join(", ")}`,
+      `Communication consent: ${body.consent ? "Yes" : "No"}`,
+    ].join("\n"));
     console.info("GHL contact and opportunity saved", { contactId });
     return NextResponse.json({ success: true, message: "Your request has been saved successfully." });
   } catch {
-    console.error("GHL contact save request failed or timed out.");
+    console.error("Audit request processing failed or timed out.");
     return NextResponse.json({ error: "We could not confirm your request. Please try again." }, { status: 502 });
   }
 }

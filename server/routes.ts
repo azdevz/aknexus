@@ -15,7 +15,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const submission = await storage.createContactSubmission(validatedData);
       
       // Send email notification
-      await sendContactNotification(submission);
+      if (!await sendContactNotification(submission)) {
+        return res.status(502).json({ message: "Unable to send your message. Please try again." });
+      }
       
       res.status(201).json({
         message: "Contact submission received successfully",

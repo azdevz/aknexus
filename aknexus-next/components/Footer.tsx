@@ -80,17 +80,6 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2.5 text-sm list-none p-0 m-0">
               <li>
-                <a
-                  href="https://dashboard.aknexus.co/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[#f5d88a] font-semibold hover:underline transition-colors no-underline inline-flex items-center gap-1"
-                >
-                  <span>Client Portal</span>
-                  <ArrowUpRight size={13} />
-                </a>
-              </li>
-              <li>
                 <Link
                   href="/plans"
                   className="text-white/70 hover:text-[#f5d88a] transition-colors no-underline"

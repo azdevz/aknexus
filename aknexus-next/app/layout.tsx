@@ -77,14 +77,6 @@ export default function RootLayout({
         <Footer />
         <StickyMobileCTA />
 
-        {/* GHL LeadConnector Chat Widget */}
-        <Script
-          id="lc-chat-widget"
-          src="https://widgets.leadconnectorhq.com/loader.js"
-          data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
-          data-widget-id="6abe8b0dcdeb03a6d5e2d21b"
-          strategy="afterInteractive"
-        />
       </body>
     </html>
   );

@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Send, MapPin, Mail, Phone } from "lucide-react";
 
@@ -10,18 +11,28 @@ const services = [
 ];
 
 export default function Contact() {
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const [sending, setSending] = useState(false);
+  const [feedback, setFeedback] = useState("");
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const fd = new FormData(e.currentTarget);
-    const name = fd.get("name");
-    const email = fd.get("email");
-    const service = fd.get("service");
-    const message = fd.get("message");
-    const msg = encodeURIComponent(
-      `Hi AK Nexus! I'm ${name} (${email}).\nService: ${service}\n\n${message}`
-    );
-    window.open(`https://wa.me/971526365585?text=${msg}`, "_blank");
-    (e.target as HTMLFormElement).reset();
+    if (sending) return;
+    const form = e.currentTarget;
+    setSending(true);
+    setFeedback("");
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(Object.fromEntries(new FormData(form))),
+      });
+      if (!response.ok) throw new Error();
+      form.reset();
+      setFeedback("Your message has been sent.");
+    } catch {
+      setFeedback("We couldn’t send your message. Please check your details and try again.");
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -94,7 +105,7 @@ export default function Contact() {
                 ].map((f) => (
                   <div key={f.name}>
                     <label style={{ display: "block", fontSize: "0.8rem", fontWeight: 600, color: "#0a1628", marginBottom: "0.5rem" }}>{f.label} <span style={{ color: "#ef4444" }}>*</span></label>
-                    <input name={f.name} type={f.type} required placeholder={f.placeholder} style={{ width: "100%", border: "1.5px solid rgba(10,22,40,0.1)", borderRadius: "0.75rem", padding: "0.75rem 1rem", fontSize: "0.875rem", outline: "none", background: "#fff", color: "#0a1628", transition: "border-color 0.2s" }} onFocus={(e) => (e.target.style.borderColor = "#c9a84c")} onBlur={(e) => (e.target.style.borderColor = "rgba(10,22,40,0.1)")} />
+                    <input name={f.name} type={f.type} maxLength={f.name === "email" ? 254 : 200} required placeholder={f.placeholder} style={{ width: "100%", border: "1.5px solid rgba(10,22,40,0.1)", borderRadius: "0.75rem", padding: "0.75rem 1rem", fontSize: "0.875rem", outline: "none", background: "#fff", color: "#0a1628", transition: "border-color 0.2s" }} onFocus={(e) => (e.target.style.borderColor = "#c9a84c")} onBlur={(e) => (e.target.style.borderColor = "rgba(10,22,40,0.1)")} />
                   </div>
                 ))}
               </div>
@@ -109,12 +120,13 @@ export default function Contact() {
 
               <div>
                 <label style={{ display: "block", fontSize: "0.8rem", fontWeight: 600, color: "#0a1628", marginBottom: "0.5rem" }}>Message <span style={{ color: "#ef4444" }}>*</span></label>
-                <textarea name="message" required rows={5} placeholder="Tell us about your project..." style={{ width: "100%", border: "1.5px solid rgba(10,22,40,0.1)", borderRadius: "0.75rem", padding: "0.75rem 1rem", fontSize: "0.875rem", outline: "none", background: "#fff", color: "#0a1628", resize: "none", fontFamily: "inherit", transition: "border-color 0.2s" }} onFocus={(e) => (e.target.style.borderColor = "#c9a84c")} onBlur={(e) => (e.target.style.borderColor = "rgba(10,22,40,0.1)")} />
+                <textarea name="message" maxLength={10000} required rows={5} placeholder="Tell us about your project..." style={{ width: "100%", border: "1.5px solid rgba(10,22,40,0.1)", borderRadius: "0.75rem", padding: "0.75rem 1rem", fontSize: "0.875rem", outline: "none", background: "#fff", color: "#0a1628", resize: "none", fontFamily: "inherit", transition: "border-color 0.2s" }} onFocus={(e) => (e.target.style.borderColor = "#c9a84c")} onBlur={(e) => (e.target.style.borderColor = "rgba(10,22,40,0.1)")} />
               </div>
 
-              <button type="submit" className="btn-gold" style={{ justifyContent: "center", width: "100%" }}>
-                <Send size={17} /> Send via WhatsApp
+              <button disabled={sending} type="submit" className="btn-gold" style={{ justifyContent: "center", width: "100%" }}>
+                <Send size={17} /> {sending ? "Sending…" : "Send message"}
               </button>
+              <p role="status">{feedback}</p>
             </form>
           </motion.div>
         </div>

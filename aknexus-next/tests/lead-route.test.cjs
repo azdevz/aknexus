@@ -15,14 +15,15 @@ function load(file, requireMock, extras = {}) {
 }
 const options = load('data/lead-options.ts');
 const valid = { fullName: 'Integration Test', email: 'test@example.com', phone: '+12025550198', industry: 'Car Rental', services: ['Local SEO'], consent: false };
-function route(contactFetch, env = { GHL_PRIVATE_INTEGRATION_TOKEN: 'test-token', GHL_LOCATION_ID: 'test-location', GHL_PIPELINE_ID: 'marketing', GHL_PIPELINE_STAGE_ID: 'new-lead' }, opportunityFetch) {
+function route(contactFetch, env = { GHL_PRIVATE_INTEGRATION_TOKEN: 'test-token', GHL_LOCATION_ID: 'test-location', GHL_PIPELINE_ID: 'marketing', GHL_PIPELINE_STAGE_ID: 'new-lead' }, opportunityFetch, mailFetch = async () => new Response(null, { status: 202 })) {
   const fetch = async (url, init) => {
     if (url.includes('/opportunities/') && opportunityFetch) return opportunityFetch(url, init);
     if (url.includes('/opportunities/search')) return Response.json({ opportunities: [] });
     if (url.endsWith('/opportunities/')) return Response.json({ opportunity: { id: 'new-opportunity' } });
     return contactFetch(url, init);
   };
-  return load('app/api/lead/route.ts' , (name) => name === 'next/server' ? { NextResponse: Response } : options,
+  const mail = load('lib/submission-email.ts', null, { fetch: mailFetch, process: { env: { SENDGRID_API_KEY: 'test' } }, AbortSignal });
+  return load('app/api/lead/route.ts' , (name) => name === 'next/server' ? { NextResponse: Response } : name === "@/lib/submission-email" ? mail : options,
     { fetch, process: { env }, console: { error() {}, info() {} }, AbortSignal, URLSearchParams }).POST;
 }
 const request = (body) => new Request('http://localhost/api/lead', { method: 'POST', body: JSON.stringify(body) });
@@ -104,5 +105,37 @@ test('opportunity failures report partial completion rather than false success',
     const response = await post(request(valid));
     assert.equal(response.status, 502);
     assert.match((await response.json()).error, /contact was saved/);
+  }
+});
+
+test('audit notification uses the designated inbox and requires mail acceptance', async () => {
+  for (const status of [202, 403]) {
+    let payload;
+    const post = route(async () => Response.json({ contact: { id: 'saved' } }), undefined, undefined, async (_, init) => {
+      payload = JSON.parse(init.body);
+      return new Response(null, { status });
+    });
+    const response = await post(request(valid));
+    assert.equal(payload.personalizations[0].to[0].email, 'ayazchishti99@gmail.com');
+    assert.equal(payload.reply_to.email, valid.email);
+    assert.equal(response.status, status === 202 ? 200 : 502);
+  }
+});
+
+test('consulting form validates input and reports the email delivery result', async () => {
+  const body = { name: 'Test', email: 'test@example.com', message: 'Consulting inquiry' };
+  for (const status of [202, 403]) {
+    const mail = load('lib/submission-email.ts', null, {
+      process: { env: { SENDGRID_API_KEY: 'test' } }, AbortSignal,
+      fetch: async (_, init) => {
+        const payload = JSON.parse(init.body);
+        assert.equal(payload.personalizations[0].to[0].email, 'ayazchishti99@gmail.com');
+        assert.ok(payload.content[0].value.includes(body.message));
+        return new Response(null, { status });
+      },
+    });
+    const { POST } = load('app/api/contact/route.ts', name => name === 'zod' ? require('zod') : mail, { Response });
+    assert.equal((await POST(request(body))).status, status === 202 ? 200 : 502);
+    assert.equal((await POST(request({ ...body, email: 'invalid' }))).status, 400);
   }
 });
